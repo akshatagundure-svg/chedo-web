@@ -631,9 +631,9 @@
               <path id="road-path-shadow" fill="none" stroke="transparent" stroke-width="0" style="display:none;"></path>
               <path id="road-path-curb" fill="none" stroke="transparent" stroke-width="0" style="display:none;"></path>
               <!-- Base Track: Thick dark charcoal asphalt stroke with elevated 3D shadow -->
-              <path id="road-path-surface" fill="none" stroke="#1E232A" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" filter="url(#road-shadow-filter)" d="M 20 320 C 73.5 320, 84.2 255, 127 255 C 254 255, 254 395, 381 395 C 508 395, 508 255, 635 255 C 762 255, 762 395, 889 395 C 1016 395, 1016 255, 1143 255 C 1239 255, 1258 325, 1335 325"></path>
+              <path id="road-path-surface" fill="none" stroke="#1E232A" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" filter="url(#road-shadow-filter)" d="M 25 320 C 90 320, 105 265, 160 265 C 282 265, 282 385, 404 385 C 526 385, 526 265, 648 265 C 770 265, 770 385, 892 385 C 1014 385, 1014 265, 1136 265 C 1230 265, 1260 325, 1325 325"></path>
               <!-- Center Divider: Crisp dashed white lane marking -->
-              <path id="road-path-dash" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="10 10" stroke-linecap="round" stroke-linejoin="round" d="M 20 320 C 73.5 320, 84.2 255, 127 255 C 254 255, 254 395, 381 395 C 508 395, 508 255, 635 255 C 762 255, 762 395, 889 395 C 1016 395, 1016 255, 1143 255 C 1239 255, 1258 325, 1335 325"></path>
+              <path id="road-path-dash" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="10 10" stroke-linecap="round" stroke-linejoin="round" d="M 25 320 C 90 320, 105 265, 160 265 C 282 265, 282 385, 404 385 C 526 385, 526 265, 648 265 C 770 265, 770 385, 892 385 C 1014 385, 1014 265, 1136 265 C 1230 265, 1260 325, 1325 325"></path>
             </svg>
 
             <!-- Stages Container: ID matches existing 'roadmap-timeline' so JS targets it cleanly -->

@@ -456,18 +456,30 @@
           function formatCardMilestone(text) {
             if (!text) return '';
             var clean = text.trim();
-            if (/banking application/i.test(clean)) return '60+ LeetCode & Banking App';
-            if (/enterprise database schema/i.test(clean)) return 'Enterprise DB & stored procedures';
-            if (/responsive frontend/i.test(clean)) return 'Responsive UI consuming REST APIs';
+            if (/banking application/i.test(clean)) return '60+ LeetCode Solutions & Production Banking App';
+            if (/enterprise database schema/i.test(clean)) return 'Enterprise DB Schema & Stored Procedures';
+            if (/responsive frontend/i.test(clean)) return 'Responsive Web UI Consuming RESTful APIs';
             if (/E-Commerce web application/i.test(clean)) return 'Full Stack E-Commerce (Spring Boot + React)';
-            if (/3 full stack projects/i.test(clean)) return '3 Live URLs, ATS Resume & Mock Interviews';
-            if (clean.length > 55) {
-              var sub = clean.slice(0, 52);
+            if (/3 full stack projects/i.test(clean)) return '3 Live URLs, ATS Resume & Mock Technical Interviews';
+            if (clean.length > 70) {
+              var sub = clean.slice(0, 68);
               var sp = sub.lastIndexOf(' ');
-              if (sp > 35) sub = sub.slice(0, sp);
+              if (sp > 45) sub = sub.slice(0, sp);
               return sub + '...';
             }
             return clean;
+          }
+
+          function getStageCategory(st, idx) {
+            if (st.category) return st.category;
+            var raw = (st.stage_name || '') + ' ' + (st.skills || []).join(' ');
+            if (/foundation|java\s*\+|basics|dsa/i.test(raw)) return 'Foundation';
+            if (/database|dbms|sql|relational/i.test(raw)) return 'Data Tier';
+            if (/frontend|html|css|ui|client/i.test(raw)) return 'Client Tier';
+            if (/spring|boot|rest|backend|server/i.test(raw)) return 'Server Tier';
+            if (/placement|interview|resume|project/i.test(raw)) return 'Placement';
+            var defaults = ['Foundation', 'Expansion', 'Client Tier', 'Server Tier', 'Career Ready'];
+            return defaults[idx] || 'Milestone';
           }
 
           function escapeHtml(str) {
@@ -489,7 +501,7 @@
               col.className = 'stage-col ' + (isTop ? 'is-top' : 'is-bottom');
               col.setAttribute('data-stage-index', idx);
 
-              var topSkills = (st.skills || []).slice(0, 3);
+              var topSkills = (st.skills || []).slice(0, 5);
               var moreCount = (st.skills || []).length - topSkills.length;
               var skillsHtml = topSkills.map(function (sk) {
                 return "<span class='stage-skill-pill'>" + escapeHtml(sk) + "</span>";
@@ -509,19 +521,23 @@
                 "<span class='stage-pin-number'>" + numStr + "</span>" +
                 "</div>";
 
+              var categoryName = getStageCategory(st, idx);
               var cardHtml =
                 "<div class='stage-card-block' data-stage='" + idx + "' tabindex='0'>" +
                 "<div class='stage-header-row'>" +
+                "<div class='stage-header-badges'>" +
                 "<span class='stage-pill-tag'>STAGE " + numStr + "</span>" +
+                "<span class='stage-category-pill'>" + escapeHtml(categoryName) + "</span>" +
+                "</div>" +
                 "<span class='stage-duration-tag'>⏱ " + escapeHtml(st.duration) + "</span>" +
                 "</div>" +
                 "<h5 class='stage-name-title' title='" + escapeAttr(st.stage_name) + "'>" + escapeHtml(cleanStageTitle(st.stage_name)) + "</h5>" +
                 "<div class='stage-skills-wrap'>" + skillsHtml + "</div>" +
                 "<div class='stage-milestone-box' title='" + escapeAttr(st.milestone) + "'>" +
-                "<strong>🎯</strong> <span class='milestone-text'>" + escapeHtml(formatCardMilestone(st.milestone)) + "</span>" +
+                "<strong class='stage-milestone-label'>🎯 Outcome:</strong> <span class='milestone-text'>" + escapeHtml(formatCardMilestone(st.milestone)) + "</span>" +
                 "</div>" +
                 "<div class='stage-card-footer'>" +
-                courseBtn +
+                (courseBtn || "<span class='stage-track-label'>Curated Track</span>") +
                 "<button class='stage-details-btn' type='button' aria-label='View Stage " + numStr + " Details'>Details 🔍</button>" +
                 "</div>" +
                 "</div>";

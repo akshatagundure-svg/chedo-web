@@ -5045,6 +5045,7 @@ nav[aria-label="Breadcrumb"] {
   height: 100%;
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr)) 130px;
+  padding: 0 10px 0 36px;
   gap: 0;
   box-sizing: border-box;
 }
@@ -5062,12 +5063,12 @@ nav[aria-label="Breadcrumb"] {
 
 .stage-col.is-top {
   justify-content: flex-start;
-  padding-top: 10px;
+  padding-top: 6px;
 }
 
 .stage-col.is-bottom {
   justify-content: flex-end;
-  padding-bottom: 10px;
+  padding-bottom: 6px;
 }
 
 .stage-col.is-goal {
@@ -5083,7 +5084,7 @@ nav[aria-label="Breadcrumb"] {
 /* Connecting stem between Card and Pin */
 .stage-connector-stem {
   width: 2px;
-  height: 42px;
+  height: 28px;
   background: repeating-linear-gradient(
     to bottom,
     #f59e0b,
@@ -5170,16 +5171,18 @@ nav[aria-label="Breadcrumb"] {
   }
 }
 
-/* Compact & Neat Stage Card */
+/* Expanded, Modern High-Density Stage Card */
 .stage-card-block {
-  width: 100%;
-  max-width: 215px;
-  background: #ffffff;
+  width: clamp(285px, 21.5vw, 340px);
+  max-width: 340px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1.5px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 9px 11px;
-  box-shadow: 0 4px 12px -3px rgba(15, 23, 42, 0.07);
-  transition: all 0.22s ease;
+  border-radius: 16px;
+  padding: 13px 15px;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.03);
+  transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   z-index: 4;
   cursor: pointer;
@@ -5191,16 +5194,22 @@ nav[aria-label="Breadcrumb"] {
 
 .stage-card-block:hover {
   border-color: #2563eb;
-  box-shadow: 0 8px 20px -3px rgba(37, 99, 235, 0.16);
-  transform: translateY(-2px);
+  box-shadow: 0 18px 32px -8px rgba(37, 99, 235, 0.20), 0 8px 12px -4px rgba(37, 99, 235, 0.08);
+  transform: translateY(-3px);
 }
 
 .stage-header-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 6px;
-  margin-bottom: 5px;
+  gap: 8px;
+  margin-bottom: 7px;
+}
+
+.stage-header-badges {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .stage-pill-tag {
@@ -5211,31 +5220,43 @@ nav[aria-label="Breadcrumb"] {
   color: #2563eb;
   background: #eff6ff;
   border: 1px solid #dbeafe;
-  padding: 1.5px 5px;
-  border-radius: 4px;
+  padding: 2px 6px;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+
+.stage-category-pill {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #475569;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 2px 7px;
+  border-radius: 5px;
+  white-space: nowrap;
 }
 
 .stage-duration-tag {
   display: inline-flex;
   align-items: center;
-  gap: 3px;
-  font-size: 9.5px;
+  gap: 3.5px;
+  font-size: 10px;
   font-weight: 700;
-  background: #f1f5f9;
+  background: #f8fafc;
   color: #475569;
-  padding: 1px 6px;
+  padding: 2px 8px;
   border-radius: 9999px;
   border: 1px solid #e2e8f0;
   white-space: nowrap;
 }
 
 .stage-name-title {
-  font-size: 12px;
+  font-size: 13.5px;
   font-weight: 800;
   color: #0f172a;
-  letter-spacing: -0.01em;
-  line-height: 1.25;
-  margin-bottom: 5px;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+  margin-bottom: 7px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -5244,51 +5265,64 @@ nav[aria-label="Breadcrumb"] {
 .stage-skills-wrap {
   display: flex;
   flex-wrap: wrap;
-  gap: 3px;
-  margin-bottom: 5px;
-  max-height: 22px;
+  gap: 4px;
+  margin-bottom: 8px;
+  max-height: 48px;
   overflow: hidden;
 }
 
 .stage-skill-pill {
   display: inline-flex;
   align-items: center;
-  padding: 1px 5px;
-  border-radius: 4px;
+  padding: 2px 6.5px;
+  border-radius: 5px;
   background: #f8fafc;
   border: 1px solid #e2e8f0;
-  font-size: 9.5px;
+  font-size: 10px;
   font-weight: 600;
   color: #334155;
   white-space: nowrap;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.stage-skill-pill:hover {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: #1d4ed8;
 }
 
 .stage-skill-more {
-  font-size: 9px;
+  font-size: 9.5px;
   font-weight: 700;
   color: #2563eb;
   background: #eff6ff;
-  padding: 1px 4.5px;
-  border-radius: 4px;
+  border: 1px solid #dbeafe;
+  padding: 2px 6px;
+  border-radius: 5px;
+  white-space: nowrap;
 }
 
 .stage-milestone-box {
-  padding: 3.5px 6px;
-  border-radius: 6px;
+  width: 100%;
+  padding: 6px 9px;
+  border-radius: 8px;
   background: #f0fdf4;
   border: 1px solid #bbf7d0;
-  font-size: 9.5px;
-  color: #15803d;
-  line-height: 1.3;
-  margin-bottom: 5px;
+  font-size: 10.5px;
+  color: #166534;
+  line-height: 1.35;
+  margin-bottom: 8px;
   display: flex;
   align-items: flex-start;
-  gap: 3px;
+  gap: 5px;
+  box-sizing: border-box;
 }
 
-.stage-milestone-box strong {
-  color: #166534;
+.stage-milestone-label {
+  color: #15803d;
+  font-weight: 800;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .milestone-text {
@@ -5296,49 +5330,61 @@ nav[aria-label="Breadcrumb"] {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  color: #14532d;
+  font-weight: 600;
 }
 
 .stage-card-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 4px;
+  gap: 8px;
   margin-top: auto;
-  padding-top: 4px;
+  padding-top: 6px;
   border-top: 1px solid #f1f5f9;
+}
+
+.stage-track-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: #94a3b8;
+  letter-spacing: 0.02em;
 }
 
 .stage-course-btn {
   display: inline-flex;
   align-items: center;
-  gap: 3px;
-  padding: 2.5px 7px;
-  border-radius: 5px;
+  gap: 4px;
+  padding: 3.5px 9px;
+  border-radius: 6px;
   background: #2563eb;
   color: #ffffff;
-  font-size: 9.5px;
+  font-size: 10.5px;
   font-weight: 700;
   text-decoration: none;
-  transition: background 0.15s ease;
+  transition: all 0.15s ease;
   white-space: nowrap;
+  box-shadow: 0 1px 2px rgba(37, 99, 235, 0.2);
 }
 
 .stage-course-btn:hover {
   background: #1d4ed8;
+  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.3);
+  transform: translateY(-0.5px);
 }
 
 .stage-details-btn {
   background: none;
   border: none;
   color: #2563eb;
-  font-size: 9.5px;
+  font-size: 10.5px;
   font-weight: 700;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 2px;
-  padding: 2px 5px;
-  border-radius: 4px;
+  gap: 3px;
+  padding: 3px 7px;
+  border-radius: 5px;
   transition: all 0.15s ease;
 }
 

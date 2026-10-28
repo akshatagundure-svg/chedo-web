@@ -107,7 +107,7 @@ $nav_cur = function ($key) use ($nav_is) {
   <?php elseif (!empty($page_hero_image)): ?>
     <link rel="preload" as="image" href="<?php echo htmlspecialchars($page_hero_image); ?>" fetchpriority="high">
   <?php endif; ?>
-  <link rel="stylesheet" href="/assets/css/main.min.css?v=20261028a">
+  <link rel="stylesheet" href="/assets/css/main.min.css?v=20261028b">
   <?php foreach (($page_extra_css ?? []) as $extra_css): ?>
     <link rel="stylesheet" href="<?php echo htmlspecialchars($extra_css); ?>">
   <?php endforeach; ?>
@@ -602,7 +602,7 @@ $nav_cur = function ($key) use ($nav_is) {
     window.SITE_CONFIG_OVERRIDES = <?= json_encode(cms_site_overrides(), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG | JSON_HEX_AMP) ?>;
   </script>
   <script defer src="/assets/js/config.js"></script>
-  <script defer src="/assets/js/main.min.js?v=20261028a"></script>
+  <script defer src="/assets/js/main.min.js?v=20261028b"></script>
   <script defer src="/assets/js/chatbot.js?v=20261026c"></script>
   <script type="application/ld+json">
     {
