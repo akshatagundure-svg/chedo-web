@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /course.php
+Disallow: /api-recommend.php
+Disallow: /enquire-submit.php
+Disallow: /chat-api.php
+
+Sitemap: https://chedo.in/sitemap.xml

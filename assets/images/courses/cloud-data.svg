@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" fill="none">
+  <defs>
+    <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+  </defs>
+  <circle cx="40" cy="40" r="34" fill="#eff6ff" stroke="#dbeafe" stroke-width="1.5"/>
+  <path d="M26 44 C22 44 19 41 19 37 C19 33.5 21.5 30.5 25 30.1 C26.2 24.3 31.3 20 37.5 20 C44.5 20 50.3 25.2 51.2 32 C54.5 32.5 57 35.5 57 39 C57 43 53.5 46 49.5 46 H26 Z" fill="url(#cloudGrad)"/>
+  <rect x="28" y="50" width="24" height="5" rx="2.5" fill="#1e40af"/>
+  <circle cx="32" cy="52.5" r="1.5" fill="#38bdf8"/>
+  <circle cx="36" cy="52.5" r="1.5" fill="#38bdf8"/>
+  <rect x="28" y="58" width="24" height="5" rx="2.5" fill="#1e40af"/>
+  <circle cx="32" cy="60.5" r="1.5" fill="#34d399"/>
+  <circle cx="36" cy="60.5" r="1.5" fill="#34d399"/>
+  <path d="M40 37 L37 43 H43 L40 49" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

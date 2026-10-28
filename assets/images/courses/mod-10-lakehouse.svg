@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" fill="none">
+  <defs>
+    <linearGradient id="deltaBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00add8"/>
+      <stop offset="100%" stop-color="#0052cc"/>
+    </linearGradient>
+  </defs>
+  <!-- Delta Lake Prism Shape (Iconic Delta Triangle) -->
+  <polygon points="40,12 68,60 12,60" fill="url(#deltaBlue)" stroke="#003d99" stroke-width="2"/>
+  <!-- Inner Cutout Triangle -->
+  <polygon points="40,28 54,52 26,52" fill="#ffffff" opacity="0.95"/>
+  <!-- Center Delta Core -->
+  <polygon points="40,36 47,48 33,48" fill="#00add8"/>
+  <!-- Storage Wave Layers at Base -->
+  <path d="M8 68 Q24 64 40 68 T72 68" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M14 74 Q27 71 40 74 T66 74" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
+</svg>

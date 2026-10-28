@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" fill="none">
+  <defs>
+    <linearGradient id="pyBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#387eb8"/>
+      <stop offset="100%" stop-color="#1e415f"/>
+    </linearGradient>
+    <linearGradient id="pyYellow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffe873"/>
+      <stop offset="100%" stop-color="#ffd43b"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  <g filter="url(#shadow)">
+    <!-- Blue Python Snake -->
+    <path d="M39.5 8 C23.5 8 24.5 15 24.5 15 L24.5 22 L40 22 L40 24.5 L18 24.5 C18 24.5 8 23.3 8 39.5 C8 55.7 16.8 54.8 16.8 54.8 L21.5 54.8 L21.5 47.5 C21.5 47.5 21.1 38.8 30 38.8 L45.2 38.8 C45.2 38.8 53.5 39.2 53.5 31 L53.5 15.5 C53.5 15.5 54.8 8 39.5 8 Z" fill="url(#pyBlue)"/>
+    <circle cx="29" cy="14.5" r="2.2" fill="#ffffff"/>
+    <!-- Yellow Python Snake -->
+    <path d="M40.5 72 C56.5 72 55.5 65 55.5 65 L55.5 58 L40 58 L40 55.5 L62 55.5 C62 55.5 72 56.7 72 40.5 C72 24.3 63.2 25.2 63.2 25.2 L58.5 25.2 L58.5 32.5 C58.5 32.5 58.9 41.2 50 41.2 L34.8 41.2 C34.8 41.2 26.5 40.8 26.5 49 L26.5 64.5 C26.5 64.5 25.2 72 40.5 72 Z" fill="url(#pyYellow)"/>
+    <circle cx="51" cy="65.5" r="2.2" fill="#1e415f"/>
+  </g>
+</svg>

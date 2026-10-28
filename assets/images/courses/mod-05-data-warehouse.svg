@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" fill="none">
+  <defs>
+    <linearGradient id="dwhRoof" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+    <linearGradient id="dwhCol" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+  </defs>
+  <!-- Warehouse Pediment Roof -->
+  <path d="M40 10 L68 25 L12 25 Z" fill="url(#dwhRoof)"/>
+  <rect x="10" y="25" width="60" height="4" fill="#0369a1"/>
+  <!-- 4 Data Columns -->
+  <rect x="16" y="32" width="8" height="28" rx="2" fill="url(#dwhCol)"/>
+  <rect x="30" y="32" width="8" height="28" rx="2" fill="url(#dwhCol)"/>
+  <rect x="42" y="32" width="8" height="28" rx="2" fill="url(#dwhCol)"/>
+  <rect x="56" y="32" width="8" height="28" rx="2" fill="url(#dwhCol)"/>
+  <!-- Stepped Base -->
+  <rect x="12" y="62" width="56" height="4" rx="1" fill="#0369a1"/>
+  <rect x="8" y="66" width="64" height="4" rx="1.5" fill="#0284c7"/>
+  <!-- Snowflake crystal in roof center -->
+  <circle cx="40" cy="20" r="2.5" fill="#ffffff"/>
+  <path d="M40 15 L40 25 M35 20 L45 20" stroke="#ffffff" stroke-width="1"/>
+</svg>

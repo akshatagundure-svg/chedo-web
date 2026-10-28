@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" fill="none">
+  <!-- Official Pandas 4 Colored Bars with Matrix Nodes -->
+  <!-- Bar 1: Deep Navy Blue -->
+  <rect x="18" y="14" width="7" height="42" rx="3.5" fill="#150458"/>
+  <circle cx="21.5" cy="62" r="3.5" fill="#150458"/>
+  <!-- Bar 2: Hot Pink -->
+  <circle cx="33.5" cy="18" r="3.5" fill="#ff4a83"/>
+  <rect x="30" y="25" width="7" height="38" rx="3.5" fill="#ff4a83"/>
+  <!-- Bar 3: Bright Cyan/Teal -->
+  <rect x="42" y="12" width="7" height="30" rx="3.5" fill="#13adc7"/>
+  <circle cx="45.5" cy="50" r="3.5" fill="#13adc7"/>
+  <rect x="42" y="58" width="7" height="10" rx="3.5" fill="#13adc7"/>
+  <!-- Bar 4: Magenta/Ruby -->
+  <circle cx="57.5" cy="18" r="3.5" fill="#e70488"/>
+  <rect x="54" y="26" width="7" height="22" rx="3.5" fill="#e70488"/>
+  <circle cx="57.5" cy="56" r="3.5" fill="#e70488"/>
+</svg>

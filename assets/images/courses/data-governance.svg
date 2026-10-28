@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" fill="none">
+  <defs>
+    <linearGradient id="govGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f46e5"/>
+      <stop offset="100%" stop-color="#3730a3"/>
+    </linearGradient>
+  </defs>
+  <circle cx="40" cy="40" r="34" fill="#eef2ff" stroke="#e0e7ff" stroke-width="1.5"/>
+  <path d="M40 16 L56 22 V38 C56 50 48 58 40 62 C32 58 24 50 24 38 V22 L40 16 Z" fill="url(#govGrad)"/>
+  <path d="M40 20 L52 25 V38 C52 48 45 54 40 58 V20 Z" fill="#6366f1" opacity="0.5"/>
+  <path d="M32 38 L38 44 L49 32" stroke="#10b981" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

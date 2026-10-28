@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" fill="none">
+  <defs>
+    <linearGradient id="sparkFlame" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c2410c"/>
+      <stop offset="40%" stop-color="#ea580c"/>
+      <stop offset="70%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </linearGradient>
+  </defs>
+  <!-- Official Apache Spark 8-Spike Dynamic Flame Starburst -->
+  <g transform="translate(40, 40) scale(1.15)">
+    <!-- Base Flame Body -->
+    <path d="M0 -30 L5 -12 L22 -20 L12 -4 L30 0 L12 6 L22 22 L4 12 L0 30 L-5 12 L-22 20 L-12 4 L-30 0 L-12 -6 L-22 -22 L-4 -12 Z" fill="url(#sparkFlame)"/>
+    <!-- Inner Core Glow -->
+    <path d="M0 -18 L3 -7 L13 -12 L7 -2 L18 0 L7 3 L13 13 L2 7 L0 18 L-3 7 L-13 12 L-7 2 L-18 0 L-7 -3 L-13 -13 L-2 -7 Z" fill="#fff7ed" opacity="0.9"/>
+    <!-- Center Dot -->
+    <circle cx="0" cy="0" r="3.5" fill="#f97316"/>
+  </g>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" fill="none">
+  <defs>
+    <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+  </defs>
+  <!-- Main Cloud Outline -->
+  <path d="M26 56 C20 56 14 51 14 44 C14 38 18 33 24 32 C25 24 32 18 41 18 C49 18 56 23 58 31 C63 32 68 37 68 43 C68 50 63 56 56 56 Z" fill="url(#cloudGrad)"/>
+  <!-- Cloud Highlights / Server Lines -->
+  <rect x="26" y="34" width="28" height="4" rx="2" fill="#ffffff" opacity="0.9"/>
+  <rect x="26" y="42" width="28" height="4" rx="2" fill="#ffffff" opacity="0.9"/>
+  <!-- 3 Provider Indicator Dots -->
+  <circle cx="28" cy="50" r="2.5" fill="#ff9900"/> <!-- AWS Orange -->
+  <circle cx="40" cy="50" r="2.5" fill="#0089d6"/> <!-- Azure Blue -->
+  <circle cx="52" cy="50" r="2.5" fill="#4ade80"/> <!-- GCP Green -->
+  <!-- Uplink Data Arrows -->
+  <path d="M40 70 L40 58 M36 62 L40 58 L44 62" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

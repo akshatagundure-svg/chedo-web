@@ -1,0 +1,150 @@
+{
+  "source": "https://chedo.in",
+  "pages": [
+    {
+      "url": "https://chedo.in/",
+      "title": "Chedo Tech | Programming Institute in Pune",
+      "file": "/home/workdir/artifacts/chedo_rag/pages/home.md",
+      "chars": 12576,
+      "jsonld_blocks": 3
+    },
+    {
+      "url": "https://chedo.in/about.php",
+      "title": "About Chedo Tech | Programming Institute in Pune",
+      "file": "/home/workdir/artifacts/chedo_rag/pages/about.md",
+      "chars": 4967,
+      "jsonld_blocks": 1
+    },
+    {
+      "url": "https://chedo.in/contact.php",
+      "title": "Contact Chedo Tech | Programming Institute in Pune",
+      "file": "/home/workdir/artifacts/chedo_rag/pages/contact.md",
+      "chars": 2900,
+      "jsonld_blocks": 3
+    },
+    {
+      "url": "https://chedo.in/courses.php",
+      "title": "Programming Courses in Pune | Chedo Tech",
+      "file": "/home/workdir/artifacts/chedo_rag/pages/courses.md",
+      "chars": 7891,
+      "jsonld_blocks": 3
+    },
+    {
+      "url": "https://chedo.in/privacy-policy.php",
+      "title": "Privacy Policy | Chedo Tech",
+      "file": "/home/workdir/artifacts/chedo_rag/pages/privacy-policy.md",
+      "chars": 3389,
+      "jsonld_blocks": 0
+    },
+    {
+      "url": "https://chedo.in/courses/c-programming.php",
+      "title": "C Programming Course in Pune | Chedo Tech",
+      "file": "/home/workdir/artifacts/chedo_rag/pages/course-c-programming.md",
+      "chars": 7262,
+      "jsonld_blocks": 2
+    },
+    {
+      "url": "https://chedo.in/courses/cpp-programming.php",
+      "title": "C++ Programming Course in Pune | Chedo Tech",
+      "file": "/home/workdir/artifacts/chedo_rag/pages/course-cpp-programming.md",
+      "chars": 7741,
+      "jsonld_blocks": 2
+    },
+    {
+      "url": "https://chedo.in/courses/java-programming.php",
+      "title": "Java Programming Course in Pune | Chedo Tech",
+      "file": "/home/workdir/artifacts/chedo_rag/pages/course-java-programming.md",
+      "chars": 7460,
+      "jsonld_blocks": 2
+    },
+    {
+      "url": "https://chedo.in/courses/python-programming.php",
+      "title": "Python Programming Course in Pune | Chedo Tech",
+      "file": "/home/workdir/artifacts/chedo_rag/pages/course-python-programming.md",
+      "chars": 7258,
+      "jsonld_blocks": 2
+    },
+    {
+      "url": "https://chedo.in/courses/data-structures-algorithms.php",
+      "title": "Data Structures & Algorithms Course in Pune | Chedo Tech",
+      "file": "/home/workdir/artifacts/chedo_rag/pages/course-data-structures-algorithms.md",
+      "chars": 17707,
+      "jsonld_blocks": 6
+    },
+    {
+      "url": "https://chedo.in/courses/java-dsa.php",
+      "title": "Java + DSA Foundation Course in Pune | Chedo Tech",
+      "file": "/home/workdir/artifacts/chedo_rag/pages/course-java-dsa.md",
+      "chars": 9405,
+      "jsonld_blocks": 2
+    },
+    {
+      "url": "https://chedo.in/courses/python-dsa.php",
+      "title": "Python + DSA Foundation Course in Pune | Chedo Tech",
+      "file": "/home/workdir/artifacts/chedo_rag/pages/course-python-dsa.md",
+      "chars": 8333,
+      "jsonld_blocks": 2
+    },
+    {
+      "url": "https://chedo.in/courses/c-cpp-dsa.php",
+      "title": "C + C++ + DSA Foundation Course in Pune | Chedo Tech",
+      "file": "/home/workdir/artifacts/chedo_rag/pages/course-c-cpp-dsa.md",
+      "chars": 15892,
+      "jsonld_blocks": 2
+    },
+    {
+      "url": "https://chedo.in/courses/mern-full-stack.php",
+      "title": "MERN Full Stack Development Course in Pune | Chedo Tech",
+      "file": "/home/workdir/artifacts/chedo_rag/pages/course-mern-full-stack.md",
+      "chars": 16454,
+      "jsonld_blocks": 2
+    },
+    {
+      "url": "https://chedo.in/courses/java-full-stack.php",
+      "title": "Java Full Stack Development Course in Pune | Chedo Tech",
+      "file": "/home/workdir/artifacts/chedo_rag/pages/course-java-full-stack.md",
+      "chars": 17051,
+      "jsonld_blocks": 2
+    },
+    {
+      "url": "https://chedo.in/courses/mobile-app-development.php",
+      "title": "Flutter & Mobile App Development Course in Pune | Chedo Tech",
+      "file": "/home/workdir/artifacts/chedo_rag/pages/course-mobile-app-development.md",
+      "chars": 8795,
+      "jsonld_blocks": 2
+    },
+    {
+      "url": "https://chedo.in/courses/data-science-foundation.php",
+      "title": "Data Science Foundation Course in Pune | Chedo Tech",
+      "file": "/home/workdir/artifacts/chedo_rag/pages/course-data-science-foundation.md",
+      "chars": 6941,
+      "jsonld_blocks": 2
+    },
+    {
+      "url": "https://chedo.in/courses/data-science.php",
+      "title": "Data Science Course in Pune | Chedo Tech",
+      "file": "/home/workdir/artifacts/chedo_rag/pages/course-data-science.md",
+      "chars": 17293,
+      "jsonld_blocks": 2
+    },
+    {
+      "url": "https://chedo.in/courses/ui-ux-design.php",
+      "title": "UI/UX Design Course in Pune | Chedo Tech",
+      "file": "/home/workdir/artifacts/chedo_rag/pages/course-ui-ux-design.md",
+      "chars": 7193,
+      "jsonld_blocks": 2
+    },
+    {
+      "url": "https://chedo.in/courses/kids-programming.php",
+      "title": "Kids Programming Course in Pune | Chedo Tech",
+      "file": "/home/workdir/artifacts/chedo_rag/pages/course-kids-programming.md",
+      "chars": 6351,
+      "jsonld_blocks": 2
+    }
+  ],
+  "page_count": 20,
+  "chunk_count": 169,
+  "corpus": "/home/workdir/artifacts/chedo_rag/chedo_full_corpus.md",
+  "chunks": "/home/workdir/artifacts/chedo_rag/chedo_rag_chunks.jsonl",
+  "note": "index.php is identical to homepage and was skipped. Root aliases like /mern-full-stack.php return 404; canonical course URLs are under /courses/."
+}

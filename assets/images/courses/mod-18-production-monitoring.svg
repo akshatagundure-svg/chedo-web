@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" fill="none">
+  <defs>
+    <linearGradient id="promFlame" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#dc2626"/>
+    </linearGradient>
+  </defs>
+  <!-- Monitoring Dashboard Frame -->
+  <rect x="12" y="16" width="56" height="48" rx="6" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+  <!-- Header Bar -->
+  <rect x="12" y="16" width="56" height="10" rx="6" fill="#1e293b"/>
+  <circle cx="18" cy="21" r="1.5" fill="#ef4444"/>
+  <circle cx="23" cy="21" r="1.5" fill="#f59e0b"/>
+  <circle cx="28" cy="21" r="1.5" fill="#10b981"/>
+  <!-- Telemetry Heartbeat Wave (Prometheus / Grafana SLA metrics) -->
+  <path d="M16 46 L26 46 L30 36 L34 52 L38 32 L42 54 L46 44 L50 48 L64 48" stroke="#10b981" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Prometheus Flame Accent in Top Right -->
+  <path d="M56 20 C58 17 62 16 63 19 C64 21 62 23 60 25 C62 24 64 25 63 27 C61 29 57 28 56 20 Z" fill="url(#promFlame)"/>
+</svg>

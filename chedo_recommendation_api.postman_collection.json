@@ -1,0 +1,297 @@
+{
+  "info": {
+    "_postman_id": "chedo-tech-recommendation-api-v1",
+    "name": "Chedo Tech — Career Roadmap & Enquiry API",
+    "description": "Comprehensive Postman collection for Chedo Tech's Career Roadmap Recommendation Engine, Enquiry Storage, and Admin APIs.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Admin Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"admin123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "login"]
+            },
+            "description": "Authenticates admin user and initializes session cookie for subsequent administrative GET/PUT/DELETE requests."
+          }
+        },
+        {
+          "name": "Admin Profile (Verify Session)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/me",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "me"]
+            },
+            "description": "Verifies that the admin session is active."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Recommendation & Enquiry Submission",
+      "item": [
+        {
+          "name": "1. Submit Recommendation Assessment (Acceptance Profile: Java Full Stack)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Rohan Deshmukh\",\n  \"phone\": \"+91 98765 43210\",\n  \"email\": \"rohan.deshmukh@example.com\",\n  \"education\": \"Bachelor's\",\n  \"age\": 21,\n  \"learning_level\": \"Know Basic Programming\",\n  \"career_goal\": \"Java Full Stack Developer\",\n  \"known_technologies\": [\"Java\", \"C\", \"C++\", \"Python\"],\n  \"learning_objective\": \"Job and interview preparation\",\n  \"daily_availability\": \"2–4 hours\",\n  \"message\": \"Interested in Pune offline classroom batch for Java Full Stack placement.\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/enquiries",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "enquiries"]
+            },
+            "description": "Submits the 5-question assessment. The API generates the skill-gap analysis, resolves primary & supporting CMS courses, creates the visual roadmap, and stores the enquiry in the MySQL table."
+          }
+        },
+        {
+          "name": "2. Submit via Bridge Endpoint (POST /api-recommend.php)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Sneha Kulkarni\",\n  \"phone\": \"+91 98234 56789\",\n  \"email\": \"sneha.k@example.com\",\n  \"education\": \"Master's\",\n  \"learning_level\": \"Complete Beginner\",\n  \"career_goal\": \"Data Scientist\",\n  \"known_technologies\": [\"Python\"],\n  \"learning_objective\": \"Career switching\",\n  \"daily_availability\": \"2–4 hours\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api-recommend.php",
+              "host": ["{{baseUrl}}"],
+              "path": ["api-recommend.php"]
+            },
+            "description": "Public direct bridge endpoint ensuring backward compatibility with frontend scripts."
+          }
+        },
+        {
+          "name": "3. Submit Duplicate Assessment (Test Idempotency)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Rohan Deshmukh\",\n  \"phone\": \"+91 98765 43210\",\n  \"learning_level\": \"Know Basic Programming\",\n  \"career_goal\": \"Java Full Stack Developer\",\n  \"known_technologies\": [\"Java\", \"C\", \"C++\", \"Python\"],\n  \"learning_objective\": \"Job and interview preparation\",\n  \"daily_availability\": \"2–4 hours\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/enquiries",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "enquiries"]
+            },
+            "description": "Tests the idempotency mechanism. Repeating the exact same submission returns the existing enquiry record without creating duplicate database rows."
+          }
+        },
+        {
+          "name": "4. Test Invalid Submission (Missing Required Fields)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"\",\n  \"phone\": \"\",\n  \"career_goal\": \"Java Full Stack Developer\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/enquiries",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "enquiries"]
+            },
+            "description": "Expects 422 Unprocessable Entity with validation error message."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Admin Enquiry Management (Protected)",
+      "item": [
+        {
+          "name": "1. Fetch All Enquiries (Authenticated Admin)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/enquiries?page=1&limit=20",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "enquiries"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "20"
+                }
+              ]
+            },
+            "description": "Fetches paginated list of all stored enquiries with decoded skill and course details."
+          }
+        },
+        {
+          "name": "2. Filter Enquiries by Career Goal",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/enquiries?career_goal=Java Full Stack Developer",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "enquiries"],
+              "query": [
+                {
+                  "key": "career_goal",
+                  "value": "Java Full Stack Developer"
+                }
+              ]
+            },
+            "description": "Filters enquiries where career_goal matches 'Java Full Stack Developer'."
+          }
+        },
+        {
+          "name": "3. Search Enquiries by Student Mobile/Name",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/enquiries?q=98765",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "enquiries"],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "98765"
+                }
+              ]
+            },
+            "description": "Searches stored enquiries by phone number, name, or email."
+          }
+        },
+        {
+          "name": "4. Fetch Enquiry by ID (With Full Roadmap & Skill Gap)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/enquiries/{{enquiryId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "enquiries", "{{enquiryId}}"]
+            },
+            "description": "Retrieves the complete enquiry record with all decoded assessment answers, skill gap analysis, recommended courses, and the 5-stage personalized roadmap."
+          }
+        },
+        {
+          "name": "5. Update Enquiry Status (e.g. Contacted / Enrolled)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"Contacted\",\n  \"message\": \"Spoke with student on WhatsApp. Discussed offline weekend batch in Kondhwa center.\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/enquiries/{{enquiryId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "enquiries", "{{enquiryId}}"]
+            },
+            "description": "Updates enquiry status and mentor notes."
+          }
+        },
+        {
+          "name": "6. Test Unauthorized Access (Without Admin Authentication)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/enquiries",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "enquiries"]
+            },
+            "description": "Expects 401 Unauthorized when requested without an active admin session cookie."
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8000"
+    },
+    {
+      "key": "enquiryId",
+      "value": "1"
+    }
+  ]
+}

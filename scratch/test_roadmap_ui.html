@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chedo Tech - Single-Screen S-Curve Roadmap</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #0b1120;
+      padding: 20px 16px;
+      color: #0f172a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .preview-outer {
+      width: 100%;
+      max-width: 1380px;
+      margin: 0 auto;
+    }
+
+    /* Outer Wrapper Card */
+    .roadmap-wrapper-card {
+      position: relative;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 24px;
+      padding: 24px 28px 24px;
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+
+    /* Subtle decorative background pattern */
+    .roadmap-wrapper-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, #2563eb, #3b82f6, #f59e0b, #10b981);
+    }
+
+    .roadmap-wrapper-card::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 320px;
+      height: 320px;
+      background-image: radial-gradient(#d97706 1.2px, transparent 1.2px);
+      background-size: 14px 14px;
+      opacity: 0.07;
+      pointer-events: none;
+      mask-image: radial-gradient(circle at 100% 100%, black 20%, transparent 75%);
+      -webkit-mask-image: radial-gradient(circle at 100% 100%, black 20%, transparent 75%);
+    }
+
+    /* Header */
+    .roadmap-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .roadmap-header-left {
+      flex: 1;
+    }
+
+    .roadmap-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 10px;
+      border-radius: 9999px;
+      background: #fef3c7;
+      border: 1px solid #fde68a;
+      color: #92400e;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .roadmap-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .roadmap-subtitle {
+      font-size: 12.5px;
+      color: #64748b;
+      line-height: 1.4;
+      margin-top: 2px;
+    }
+
+    .roadmap-header-legend {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #64748b;
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .legend-dot.start {
+      background: #3b82f6;
+    }
+
+    .legend-dot.milestone {
+      background: #f59e0b;
+    }
+
+    .legend-dot.goal {
+      background: #10b981;
+    }
+
+    /* ==========================================================================
+       Single-Screen S-Curve Highway Container
+       ========================================================================== */
+    .roadmap-flow-container {
+      position: relative;
+      width: 100%;
+      height: 650px;
+      min-height: 650px;
+      z-index: 2;
+      overflow: visible;
+    }
+
+    /* SVG Highway */
+    .roadmap-highway-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: visible;
+    }
+
+    /* Columns Wrapper: 5 columns + goal */
+    .roadmap-stages-wrapper {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr)) 130px;
+      gap: 0;
+      box-sizing: border-box;
+    }
+
+    /* Single Stage Column */
+    .stage-col {
+      position: relative;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+    }
+
+    /* TOP Stage: Card at top, Road/Pin at middle */
+    .stage-col.is-top {
+      justify-content: flex-start;
+      padding-top: 10px;
+    }
+
+    /* BOTTOM Stage: Road/Pin at middle, Card at bottom */
+    .stage-col.is-bottom {
+      justify-content: flex-end;
+      padding-bottom: 10px;
+    }
+
+    /* Stage Spacer to position the pin exactly at the middle road elevation */
+    .stage-spacer {
+      width: 100%;
+      flex: 1 1 auto;
+      pointer-events: none;
+    }
+
+    /* Connecting stem between Card and Pin */
+    .stage-connector-stem {
+      width: 2px;
+      height: 42px;
+      background: repeating-linear-gradient(to bottom,
+          #f59e0b,
+          #f59e0b 4px,
+          transparent 4px,
+          transparent 7px);
+      position: relative;
+      z-index: 2;
+      flex-shrink: 0;
+    }
+
+    .stage-connector-stem::after {
+      content: "";
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #d97706;
+      left: -2px;
+    }
+
+    .stage-col.is-top .stage-connector-stem::after {
+      top: 0;
+    }
+
+    .stage-col.is-bottom .stage-connector-stem::after {
+      bottom: 0;
+    }
+
+    /* ==========================================================================
+       Yellow Numbered Milestone Pin (Resting on Road)
+       ========================================================================== */
+    .stage-pin-anchor {
+      position: relative;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #fef08a 0%, #f59e0b 50%, #d97706 100%);
+      border: 3.5px solid #ffffff;
+      box-shadow: 0 8px 18px -2px rgba(217, 119, 6, 0.45), 0 0 0 1px #d97706;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 5;
+      flex-shrink: 0;
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+    }
+
+    .stage-pin-anchor:hover,
+    .stage-col:hover .stage-pin-anchor {
+      transform: scale(1.15) translateY(-2px);
+      box-shadow: 0 12px 24px -2px rgba(217, 119, 6, 0.5), 0 0 0 2px #d97706;
+    }
+
+    .stage-pin-number {
+      font-size: 14px;
+      font-weight: 900;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+
+    .stage-pin-pulse {
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      border-radius: 50%;
+      border: 2px solid #facc15;
+      opacity: 0;
+      animation: pinPulse 2.4s infinite ease-out;
+      pointer-events: none;
+    }
+
+    @keyframes pinPulse {
+      0% {
+        transform: scale(0.95);
+        opacity: 0.8;
+      }
+
+      100% {
+        transform: scale(1.35);
+        opacity: 0;
+      }
+    }
+
+    /* ==========================================================================
+       Compact Stage Card
+       ========================================================================== */
+    .stage-card-block {
+      width: 100%;
+      max-width: 228px;
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 12px 14px;
+      box-shadow: 0 4px 14px -3px rgba(15, 23, 42, 0.07);
+      transition: all 0.22s ease;
+      position: relative;
+      z-index: 4;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      box-sizing: border-box;
+    }
+
+    .stage-card-block:hover {
+      border-color: #3b82f6;
+      box-shadow: 0 10px 25px -4px rgba(37, 99, 235, 0.16);
+      transform: translateY(-2px);
+    }
+
+    /* Header Row in Card */
+    .stage-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      margin-bottom: 5px;
+    }
+
+    .stage-pill-tag {
+      font-size: 9.5px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #2563eb;
+      background: #eff6ff;
+      border: 1px solid #dbeafe;
+      padding: 1.5px 6px;
+      border-radius: 4px;
+    }
+
+    .stage-duration-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      font-size: 10px;
+      font-weight: 700;
+      background: #f1f5f9;
+      color: #475569;
+      padding: 1.5px 6px;
+      border-radius: 9999px;
+      border: 1px solid #e2e8f0;
+      white-space: nowrap;
+    }
+
+    /* Title */
+    .stage-name-title {
+      font-size: 12.5px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+      margin-bottom: 5px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Description (2 lines clamp) */
+    .stage-desc-text {
+      font-size: 11px;
+      color: #475569;
+      line-height: 1.35;
+      margin-bottom: 7px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Skills Pills */
+    .stage-skills-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3.5px;
+      margin-bottom: 7px;
+      max-height: 22px;
+      overflow: hidden;
+    }
+
+    .stage-skill-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 1.5px 6px;
+      border-radius: 4px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      font-size: 10px;
+      font-weight: 600;
+      color: #334155;
+      white-space: nowrap;
+    }
+
+    .stage-skill-more {
+      font-size: 9.5px;
+      font-weight: 700;
+      color: #2563eb;
+      background: #eff6ff;
+      padding: 1.5px 5px;
+      border-radius: 4px;
+    }
+
+    /* Practical Milestone Box */
+    .stage-milestone-box {
+      padding: 5px 8px;
+      border-radius: 7px;
+      background: #eff6ff;
+      border: 1px solid #dbeafe;
+      font-size: 10px;
+      color: #1e40af;
+      line-height: 1.3;
+      margin-bottom: 7px;
+      display: flex;
+      align-items: flex-start;
+      gap: 4px;
+    }
+
+    .stage-milestone-box strong {
+      color: #1e3a8a;
+      white-space: nowrap;
+    }
+
+    .milestone-text {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    /* Card Footer & Actions */
+    .stage-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      margin-top: auto;
+      padding-top: 5px;
+      border-top: 1px solid #f1f5f9;
+    }
+
+    .stage-course-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: #2563eb;
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.15s ease;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 140px;
+    }
+
+    .stage-course-btn:hover {
+      background: #1d4ed8;
+    }
+
+    .stage-details-btn {
+      background: none;
+      border: none;
+      color: #64748b;
+      font-size: 10px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      padding: 3px 6px;
+      border-radius: 5px;
+      transition: all 0.15s ease;
+      margin-left: auto;
+    }
+
+    .stage-details-btn:hover {
+      background: #f1f5f9;
+      color: #0f172a;
+    }
+
+    /* ==========================================================================
+       Goal / Placement Finish Milestone (Column 6)
+       ========================================================================== */
+    .stage-col.is-goal {
+      justify-content: center;
+    }
+
+    .roadmap-goal-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      background: #ffffff;
+      border: 2px solid #a7f3d0;
+      box-shadow: 0 10px 25px -4px rgba(16, 185, 129, 0.2);
+      border-radius: 16px;
+      padding: 16px 14px;
+      width: 100%;
+      max-width: 180px;
+      position: relative;
+      z-index: 5;
+      transition: transform 0.2s ease;
+    }
+
+    .roadmap-goal-wrap:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px -4px rgba(16, 185, 129, 0.3);
+    }
+
+    .roadmap-goal-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      box-shadow: 0 8px 18px rgba(16, 185, 129, 0.4);
+      border: 3px solid #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .roadmap-goal-title {
+      font-size: 12.5px;
+      font-weight: 800;
+      color: #065f46;
+      line-height: 1.25;
+      margin-bottom: 3px;
+    }
+
+    .roadmap-goal-subtitle {
+      font-size: 10px;
+      color: #047857;
+      font-weight: 600;
+      background: #d1fae5;
+      padding: 2px 8px;
+      border-radius: 9999px;
+    }
+
+    /* ==========================================================================
+       Interactive Full Stage Details Modal
+       ========================================================================== */
+    .stage-modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(4px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .stage-modal-backdrop.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .stage-modal-card {
+      background: #ffffff;
+      border-radius: 20px;
+      width: 100%;
+      max-width: 620px;
+      box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
+      border: 1px solid #e2e8f0;
+      position: relative;
+      overflow: hidden;
+      transform: scale(0.95) translateY(10px);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stage-modal-backdrop.is-open .stage-modal-card {
+      transform: scale(1) translateY(0);
+    }
+
+    .stage-modal-header {
+      padding: 20px 24px 16px;
+      border-bottom: 1px solid #f1f5f9;
+      position: relative;
+      background: #f8fafc;
+    }
+
+    .stage-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      color: #64748b;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease;
+    }
+
+    .stage-modal-close:hover {
+      background: #fee2e2;
+      color: #dc2626;
+      border-color: #fca5a5;
+    }
+
+    .stage-modal-tag {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #2563eb;
+      margin-bottom: 4px;
+    }
+
+    .stage-modal-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+    }
+
+    .stage-modal-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .stage-modal-body {
+      padding: 20px 24px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .modal-section-title {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #64748b;
+      margin-bottom: 6px;
+    }
+
+    .stage-modal-desc {
+      font-size: 13.5px;
+      color: #334155;
+      line-height: 1.55;
+    }
+
+    .stage-modal-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .stage-modal-skills .stage-skill-pill {
+      font-size: 11.5px;
+      padding: 3px 9px;
+      background: #eff6ff;
+      border-color: #bfdbfe;
+      color: #1e40af;
+      font-weight: 600;
+    }
+
+    .stage-modal-milestone {
+      background: #eff6ff;
+      border: 1.5px solid #bfdbfe;
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 12.5px;
+      color: #1e40af;
+      line-height: 1.5;
+    }
+
+    .stage-modal-milestone strong {
+      color: #1e3a8a;
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .stage-modal-reason {
+      background: #fdfbf7;
+      border: 1px solid #fde68a;
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 12.5px;
+      color: #92400e;
+      line-height: 1.5;
+    }
+
+    .stage-modal-footer {
+      padding: 14px 24px;
+      background: #f8fafc;
+      border-top: 1px solid #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .stage-nav-btn {
+      padding: 6px 12px;
+      border-radius: 8px;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      color: #334155;
+      font-size: 11.5px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .stage-nav-btn:hover:not(:disabled) {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+
+    .stage-nav-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    /* ==========================================================================
+       Responsive Rules
+       ========================================================================== */
+    @media (max-width: 1023px) {
+      .roadmap-flow-container {
+        height: auto;
+      }
+
+      .roadmap-stages-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .roadmap-highway-svg {
+        display: block;
+      }
+
+      .stage-col {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 14px;
+        width: 100%;
+      }
+
+      .stage-col.is-top,
+      .stage-col.is-bottom {
+        justify-content: flex-start;
+      }
+
+      .stage-spacer,
+      .stage-connector-stem {
+        display: none !important;
+      }
+
+      .stage-pin-anchor {
+        order: 1 !important;
+        margin-top: 4px;
+      }
+
+      .stage-card-block {
+        order: 2 !important;
+        max-width: 100%;
+      }
+
+      .stage-col.is-goal {
+        order: 99;
+      }
+
+      .roadmap-goal-wrap {
+        max-width: 100%;
+        flex-direction: row;
+        gap: 14px;
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="preview-outer">
+    <div class="roadmap-wrapper-card">
+      <div class="roadmap-header">
+        <div class="roadmap-header-left">
+          <div class="roadmap-badge">Career Progression Journey</div>
+          <h3 class="roadmap-title">Personalized Career Roadmap</h3>
+          <p class="roadmap-subtitle">Follow this step-by-step milestone path designed to take you from foundational
+            concepts to enterprise placement readiness.</p>
+        </div>
+        <div class="roadmap-header-legend">
+          <span class="legend-item"><span class="legend-dot start"></span> Foundations</span>
+          <span class="legend-item"><span class="legend-dot milestone"></span> Milestones</span>
+          <span class="legend-item"><span class="legend-dot goal"></span> Placement Ready</span>
+        </div>
+      </div>
+
+      <div class="roadmap-flow-container" id="roadmap-flow-container">
+        <!-- SVG Curved Serpentine Highway Ribbon -->
+        <svg viewBox="0 0 1400 650" preserveAspectRatio="none" class="w-full h-full absolute inset-0 pointer-events-none roadmap-highway-svg" id="highway-svg" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="road-shadow-filter" x="-10%" y="-20%" width="120%" height="150%">
+              <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.25" />
+            </filter>
+          </defs>
+          <path id="road-path-shadow" fill="none" stroke="transparent" stroke-width="0" style="display:none;"></path>
+          <path id="road-path-curb" fill="none" stroke="transparent" stroke-width="0" style="display:none;"></path>
+          <!-- Base Track: Thick dark charcoal asphalt stroke with elevated 3D shadow -->
+          <path id="road-path-surface" fill="none" stroke="#1E232A" stroke-width="48" stroke-linecap="round"
+            stroke-linejoin="round" filter="url(#road-shadow-filter)" d="M 20 320 C 73.5 320, 84.2 255, 127 255 C 254 255, 254 395, 381 395 C 508 395, 508 255, 635 255 C 762 255, 762 395, 889 395 C 1016 395, 1016 255, 1143 255 C 1239 255, 1258 325, 1335 325"></path>
+          <!-- Center Divider: Crisp dashed white lane marking -->
+          <path id="road-path-dash" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="10 10"
+            stroke-linecap="round" stroke-linejoin="round" d="M 20 320 C 73.5 320, 84.2 255, 127 255 C 254 255, 254 395, 381 395 C 508 395, 508 255, 635 255 C 762 255, 762 395, 889 395 C 1016 395, 1016 255, 1143 255 C 1239 255, 1258 325, 1335 325"></path>
+        </svg>
+
+        <div class="roadmap-stages-wrapper" id="stages-wrapper"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Stage Details Modal -->
+  <div class="stage-modal-backdrop" id="stage-modal-backdrop" aria-hidden="true">
+    <div class="stage-modal-card" role="dialog" aria-modal="true">
+      <div class="stage-modal-header">
+        <button class="stage-modal-close" id="modal-close-btn" aria-label="Close details">&times;</button>
+        <div class="stage-modal-tag" id="modal-stage-num">STAGE 01</div>
+        <h4 class="stage-modal-title" id="modal-stage-title">FOUNDATION: Java &amp; DSA Revision</h4>
+        <div class="stage-modal-meta">
+          <span class="stage-duration-tag" id="modal-stage-duration">⏱ 4–5 Weeks</span>
+          <span id="modal-course-badge"></span>
+        </div>
+      </div>
+      <div class="stage-modal-body">
+        <div>
+          <div class="modal-section-title">Overview</div>
+          <p class="stage-modal-desc" id="modal-stage-desc"></p>
+        </div>
+        <div>
+          <div class="modal-section-title">Skills &amp; Technologies Mastered</div>
+          <div class="stage-modal-skills" id="modal-stage-skills"></div>
+        </div>
+        <div>
+          <div class="modal-section-title">Practical Milestone</div>
+          <div class="stage-modal-milestone" id="modal-stage-milestone"></div>
+        </div>
+        <div id="modal-reason-container">
+          <div class="modal-section-title">Why This Stage Matters</div>
+          <div class="stage-modal-reason" id="modal-stage-reason"></div>
+        </div>
+      </div>
+      <div class="stage-modal-footer">
+        <button class="stage-nav-btn" id="modal-prev-btn">&larr; Previous Stage</button>
+        <div id="modal-action-btn-container"></div>
+        <button class="stage-nav-btn" id="modal-next-btn">Next Stage &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var sampleStages = [
+      {
+        stage_number: 1,
+        stage_name: "FOUNDATION: Java & DSA Revision",
+        duration: "4–5 Weeks",
+        description: "Reinforce object-oriented programming in Java and master data structures and algorithms required for technical coding rounds.",
+        skills: ["Core Java", "OOP Principles", "Memory Model", "Arrays & Strings", "Binary Trees", "Big O Complexity"],
+        milestone: "Solve 60+ interview coding challenges on LeetCode/HackerRank and build a console banking application.",
+        reason: "Companies test DSA and Core Java logic in initial elimination rounds before testing frameworks.",
+        chedo_course: { title: "Java + DSA Foundation", url: "#" }
+      },
+      {
+        stage_number: 2,
+        stage_name: "EXPANSION: Relational DBMS & SQL Mastery",
+        duration: "3 Weeks",
+        description: "Design production database schemas, write complex relational queries, optimize indexes, and understand transaction ACID properties.",
+        skills: ["Relational Data Modeling", "SQL Joins & Subqueries", "Indexing & Optimization", "ACID Transactions", "JDBC Pooling"],
+        milestone: "Design an enterprise database schema for an order-processing system with indexing and stored procedures.",
+        reason: "Every enterprise Java backend relies heavily on relational database performance.",
+        chedo_course: null
+      },
+      {
+        stage_number: 3,
+        stage_name: "WEB FUNDAMENTALS: Modern Frontend UI",
+        duration: "3–4 Weeks",
+        description: "Master responsive layouts, modern JavaScript (ES6+), DOM events, and asynchronous HTTP calls to prepare for full-stack integration.",
+        skills: ["HTML5 Semantics", "CSS3 Flex & Grid", "ES6+ Async/Await", "REST APIs", "Tailwind CSS"],
+        milestone: "Develop a responsive frontend interface consuming public REST APIs with dynamic filtering and validation.",
+        reason: "Provides client-side foundation before mastering React and Spring Boot integration.",
+        chedo_course: null
+      },
+      {
+        stage_number: 4,
+        stage_name: "SPECIALIZATION: Spring Boot, REST APIs & React",
+        duration: "8–10 Weeks",
+        description: "Master the industry-standard enterprise Java framework, building robust RESTful microservices paired with a modern React frontend.",
+        skills: ["Spring Boot 3", "Spring Data JPA", "JWT Auth", "React Hooks", "State Management", "Axios"],
+        milestone: "Develop a production-ready Full Stack E-Commerce web application with Spring Boot, MySQL, and React.",
+        reason: "Core industry hiring requirement for high-paying Java Full Stack Developer positions.",
+        chedo_course: { title: "Java Full Stack Development", url: "#" }
+      },
+      {
+        stage_number: 5,
+        stage_name: "JOB READINESS: Projects, Resume & Mock Interviews",
+        duration: "4 Weeks",
+        description: "Prepare for top MNC and startup technical rounds with daily coding drills, architectural reviews, portfolio hosting, and mock interviews.",
+        skills: ["Capstone Deployment", "GitHub CI/CD", "System Design", "Mock Interviews", "ATS Resume"],
+        milestone: "Deploy 3 full stack projects with live URLs, finalize an ATS-optimized resume, and clear Chedo mock interviews.",
+        reason: "Ensures you convert technical interviews into verified job offers with confidence.",
+        chedo_course: null
+      }
+    ];
+
+    var currentModalIndex = 0;
+
+    function cleanStageTitle(title) {
+      if (!title) return '';
+      var clean = title.replace(/^(STAGE\s*\d+\s*:\s*|FOUNDATION\s*:\s*|EXPANSION\s*:\s*|WEB\s*FUNDAMENTALS\s*:\s*|SPECIALIZATION\s*:\s*|JOB\s*READINESS\s*:\s*)/i, '').trim();
+      clean = clean.replace(/Relational DBMS & SQL Mastery/i, 'Relational DBMS & SQL');
+      clean = clean.replace(/Spring Boot, REST APIs & React/i, 'Spring Boot, REST & React');
+      clean = clean.replace(/Projects, Resume & Mock Interviews/i, 'Projects & Placement Prep');
+      return clean;
+    }
+
+    function formatCardMilestone(text) {
+      if (!text) return '';
+      var clean = text.trim();
+      if (/banking application/i.test(clean)) return '60+ LeetCode & Banking App';
+      if (/enterprise database schema/i.test(clean)) return 'Enterprise DB & stored procedures';
+      if (/responsive frontend/i.test(clean)) return 'Responsive UI consuming REST APIs';
+      if (/E-Commerce web application/i.test(clean)) return 'Full Stack E-Commerce (Spring Boot + React)';
+      if (/3 full stack projects/i.test(clean)) return '3 Live URLs, ATS Resume & Mock Interviews';
+      if (clean.length > 55) {
+        var sub = clean.slice(0, 52);
+        var sp = sub.lastIndexOf(' ');
+        if (sp > 35) sub = sub.slice(0, sp);
+        return sub + '...';
+      }
+      return clean;
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    function escapeAttr(str) {
+      if (!str) return '';
+      return String(str).replace(/"/g, '&quot;');
+    }
+
+    function renderSingleScreenRoadmap(stages) {
+      var wrapper = document.getElementById('stages-wrapper');
+      if (!wrapper) return;
+      wrapper.innerHTML = '';
+
+      stages.forEach(function (st, idx) {
+        var isTop = (idx % 2 === 0);
+        var numStr = (st.stage_number < 10 ? '0' : '') + st.stage_number;
+        var col = document.createElement('div');
+        col.className = 'stage-col ' + (isTop ? 'is-top' : 'is-bottom');
+        col.setAttribute('data-stage-index', idx);
+
+        var topSkills = (st.skills || []).slice(0, 3);
+        var moreCount = (st.skills || []).length - topSkills.length;
+        var skillsHtml = topSkills.map(function (sk) {
+          return "<span class='stage-skill-pill'>" + sk + "</span>";
+        }).join(' ');
+
+        if (moreCount > 0) {
+          skillsHtml += "<span class='stage-skill-more'>+" + moreCount + "</span>";
+        }
+
+        var courseBtn = '';
+        if (st.chedo_course && st.chedo_course.title) {
+          courseBtn = "<a href='" + (st.chedo_course.url || '#') + "' class='stage-course-btn' target='_blank' onclick='event.stopPropagation()'>🎓 Course &rarr;</a>";
+        }
+
+        var pinHtml =
+          "<div class='stage-pin-anchor' id='pin-anchor-" + idx + "' aria-label='Stage " + numStr + "'>" +
+          "<span class='stage-pin-pulse'></span>" +
+          "<span class='stage-pin-number'>" + numStr + "</span>" +
+          "</div>";
+
+        var cardHtml =
+          "<div class='stage-card-block' data-stage='" + idx + "' tabindex='0'>" +
+          "<div class='stage-header-row'>" +
+          "<span class='stage-pill-tag'>STAGE " + numStr + "</span>" +
+          "<span class='stage-duration-tag'>⏱ " + st.duration + "</span>" +
+          "</div>" +
+          "<h5 class='stage-name-title' title='" + escapeAttr(st.stage_name) + "'>" + escapeHtml(cleanStageTitle(st.stage_name)) + "</h5>" +
+          "<div class='stage-skills-wrap'>" + skillsHtml + "</div>" +
+          "<div class='stage-milestone-box' title='" + escapeAttr(st.milestone) + "'>" +
+          "<strong>🎯</strong> <span class='milestone-text'>" + escapeHtml(formatCardMilestone(st.milestone)) + "</span>" +
+          "</div>" +
+          "<div class='stage-card-footer'>" +
+          courseBtn +
+          "<button class='stage-details-btn' type='button'>Details 🔍</button>" +
+          "</div>" +
+          "</div>";
+
+        var stemHtml = "<div class='stage-connector-stem'></div>";
+        var spacerHtml = "<div class='stage-spacer'></div>";
+
+        if (isTop) {
+          // Card -> Stem -> Pin -> Spacer
+          col.innerHTML = cardHtml + stemHtml + pinHtml + spacerHtml;
+        } else {
+          // Spacer -> Pin -> Stem -> Card
+          col.innerHTML = spacerHtml + pinHtml + stemHtml + cardHtml;
+        }
+
+        // Attach click to open modal
+        col.querySelector('.stage-card-block').addEventListener('click', function () {
+          openStageModal(idx);
+        });
+        col.querySelector('.stage-pin-anchor').addEventListener('click', function (e) {
+          e.stopPropagation();
+          openStageModal(idx);
+        });
+
+        wrapper.appendChild(col);
+      });
+
+      // Append Final Destination Goal Milestone (Col 6)
+      var goalCol = document.createElement('div');
+      goalCol.className = 'stage-col is-goal';
+      goalCol.id = 'roadmap-goal-wrap';
+      goalCol.innerHTML =
+        "<div class='roadmap-goal-wrap'>" +
+        "<div class='roadmap-goal-icon' aria-hidden='true'>🏆</div>" +
+        "<div class='roadmap-goal-title'>Placement Ready</div>" +
+        "<div class='roadmap-goal-subtitle'>Career Transition Complete</div>" +
+        "</div>";
+      wrapper.appendChild(goalCol);
+
+      requestAnimationFrame(updateHighwayRibbon);
+      setTimeout(updateHighwayRibbon, 60);
+      setTimeout(updateHighwayRibbon, 200);
+    }
+
+    function cleanStageTitle(title) {
+      return title.replace(/^(STAGE\s*\d+\s*:\s*|FOUNDATION\s*:\s*|EXPANSION\s*:\s*|WEB\s*FUNDAMENTALS\s*:\s*|SPECIALIZATION\s*:\s*|JOB\s*READINESS\s*:\s*)/i, '').trim();
+    }
+
+    function trickTitle() { return ''; }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+    function escapeAttr(str) {
+      if (!str) return '';
+      return String(str).replace(/"/g, '&quot;');
+    }
+
+    // Dynamic S-Curve Ribbon calculation
+    function updateHighwayRibbon() {
+      var container = document.getElementById('roadmap-flow-container');
+      if (!container) return;
+      var pins = container.querySelectorAll('.stage-pin-anchor');
+      var goal = document.getElementById('roadmap-goal-wrap');
+      if (!pins.length) return;
+
+      var containerRect = container.getBoundingClientRect();
+      if (containerRect.width === 0 || containerRect.height === 0) return;
+
+      var isDesktop = window.innerWidth >= 1024;
+      var points = [];
+
+      if (isDesktop) {
+        var scaleX = 1400 / containerRect.width;
+        var scaleY = 650 / containerRect.height;
+
+        pins.forEach(function (pin, i) {
+          var pr = pin.getBoundingClientRect();
+          var px = ((pr.left + pr.width / 2) - containerRect.left) * scaleX;
+          var py = ((pr.top + pr.height / 2) - containerRect.top) * scaleY;
+          points.push({ x: px, y: py, isLeft: (i % 2 === 0) });
+        });
+
+        if (goal) {
+          var gr = goal.getBoundingClientRect();
+          var gx = ((gr.left + gr.width / 2) - containerRect.left) * scaleX;
+          var gy = ((gr.top + gr.height / 2) - containerRect.top) * scaleY;
+          points.push({ x: gx, y: gy, isGoal: true });
+        }
+
+        if (points.length < 2) return;
+
+        // Natural curved road entry swinging up into Peak 1
+        var entryX = Math.max(15, points[0].x - (points[1].x - points[0].x) * 0.45);
+        var entryY = (points[0].y + points[1].y) / 2;
+        var d = 'M ' + entryX.toFixed(1) + ' ' + entryY.toFixed(1);
+
+        var c1x = entryX + (points[0].x - entryX) * 0.5;
+        var c2x = points[0].x - (points[0].x - entryX) * 0.4;
+        d += ' C ' + c1x.toFixed(1) + ' ' + entryY.toFixed(1) + ', ' + c2x.toFixed(1) + ' ' + points[0].y.toFixed(1) + ', ' + points[0].x.toFixed(1) + ' ' + points[0].y.toFixed(1);
+
+        for (var i = 0; i < points.length - 1; i++) {
+          var pA = points[i];
+          var pB = points[i + 1];
+
+          var deltaX = pB.x - pA.x;
+
+          // Deep horizontal S-curve with pure horizontal tangents at crests & troughs
+          var cp1x = pA.x + deltaX * 0.5;
+          var cp1y = pA.y;
+          var cp2x = pB.x - deltaX * 0.5;
+          var cp2y = pB.y;
+
+          d += ' C ' + cp1x.toFixed(1) + ' ' + cp1y.toFixed(1) + ', ' + cp2x.toFixed(1) + ' ' + cp2y.toFixed(1) + ', ' + pB.x.toFixed(1) + ' ' + pB.y.toFixed(1);
+        }
+      } else {
+        // Mobile / Tablet vertical highway starting at Stage 1
+        pins.forEach(function (pin) {
+          var pr = pin.getBoundingClientRect();
+          var px = (pr.left + pr.width / 2) - containerRect.left;
+          var py = (pr.top + pr.height / 2) - containerRect.top;
+          points.push({ x: px, y: py });
+        });
+
+        if (goal) {
+          var mgr = goal.getBoundingClientRect();
+          var mgx = (mgr.left + 24) - containerRect.left;
+          var mgy = (mgr.top + mgr.height / 2) - containerRect.top;
+          points.push({ x: mgx, y: mgy, isGoal: true });
+        }
+
+        if (points.length < 2) return;
+
+        var d = 'M ' + points[0].x.toFixed(1) + ' ' + points[0].y.toFixed(1);
+        for (var j = 0; j < points.length - 1; j++) {
+          var p1 = points[j];
+          var p2 = points[j + 1];
+          var midY = (p1.y + p2.y) / 2;
+          d += ' C ' + p1.x.toFixed(1) + ' ' + midY.toFixed(1) + ', ' + p2.x.toFixed(1) + ' ' + midY.toFixed(1) + ', ' + p2.x.toFixed(1) + ' ' + p2.y.toFixed(1);
+        }
+      }
+
+      ['road-path-surface', 'road-path-dash', 'road-path-shadow', 'road-path-curb'].forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.setAttribute('d', d);
+      });
+    }
+
+    // Modal Details Handling
+    function openStageModal(index) {
+      var stage = sampleStages[index];
+      if (!stage) return;
+      currentModalIndex = index;
+
+      var numStr = (stage.stage_number < 10 ? '0' : '') + stage.stage_number;
+      document.getElementById('modal-stage-num').textContent = 'STAGE ' + numStr + ' OF ' + (sampleStages.length < 10 ? '0' : '') + sampleStages.length;
+      document.getElementById('modal-stage-title').textContent = stage.stage_name;
+      document.getElementById('modal-stage-duration').textContent = '⏱ Duration: ' + stage.duration;
+      document.getElementById('modal-stage-desc').textContent = stage.description;
+      document.getElementById('modal-stage-milestone').innerHTML = '<strong>🎯 Milestone:</strong> ' + escapeHtml(stage.milestone);
+
+      var reasonWrap = document.getElementById('modal-reason-container');
+      if (stage.reason) {
+        reasonWrap.style.display = 'block';
+        document.getElementById('modal-stage-reason').textContent = stage.reason;
+      } else {
+        reasonWrap.style.display = 'none';
+      }
+
+      var skillsWrap = document.getElementById('modal-stage-skills');
+      skillsWrap.innerHTML = (stage.skills || []).map(function (sk) {
+        return "<span class='stage-skill-pill'>✓ " + escapeHtml(sk) + "</span>";
+      }).join(' ');
+
+      var actContainer = document.getElementById('modal-action-btn-container');
+      if (stage.chedo_course && stage.chedo_course.title) {
+        actContainer.innerHTML = "<a href='" + (stage.chedo_course.url || '#') + "' class='stage-course-btn' target='_blank' style='padding: 6px 14px; font-size: 11.5px;'>🎓 Explore " + escapeHtml(stage.chedo_course.title) + " &rarr;</a>";
+      } else {
+        actContainer.innerHTML = '';
+      }
+
+      document.getElementById('modal-prev-btn').disabled = (index === 0);
+      document.getElementById('modal-next-btn').disabled = (index === sampleStages.length - 1);
+
+      var modal = document.getElementById('stage-modal-backdrop');
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeStageModal() {
+      var modal = document.getElementById('stage-modal-backdrop');
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+    }
+
+    document.getElementById('modal-close-btn').addEventListener('click', closeStageModal);
+    document.getElementById('stage-modal-backdrop').addEventListener('click', function (e) {
+      if (e.target === this) closeStageModal();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeStageModal();
+    });
+
+    document.getElementById('modal-prev-btn').addEventListener('click', function () {
+      if (currentModalIndex > 0) openStageModal(currentModalIndex - 1);
+    });
+    document.getElementById('modal-next-btn').addEventListener('click', function () {
+      if (currentModalIndex < sampleStages.length - 1) openStageModal(currentModalIndex + 1);
+    });
+
+    window.addEventListener('resize', function () {
+      requestAnimationFrame(updateHighwayRibbon);
+    });
+
+    // Initialize
+    renderSingleScreenRoadmap(sampleStages);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,455 @@
+{
+ "page_items": [
+  {
+   "page": "home",
+   "section": "skills",
+   "title": "Data Science",
+   "subtitle": "Python · SQL · Power BI",
+   "icon": "share-nodes",
+   "link_url": "courses/data-science.php",
+   "sort_order": 1
+  },
+  {
+   "page": "home",
+   "section": "skills",
+   "title": "MERN Full Stack Development",
+   "subtitle": "React · Node.js · Databases",
+   "icon": "code-polyline",
+   "link_url": "courses/mern-full-stack.php",
+   "sort_order": 2
+  },
+  {
+   "page": "home",
+   "section": "skills",
+   "title": "DSA & Problem Solving",
+   "subtitle": "Logic · Algorithms · Coding",
+   "icon": "network",
+   "link_url": "courses/data-structures-algorithms.php",
+   "sort_order": 3
+  },
+  {
+   "page": "home",
+   "section": "skills",
+   "title": "Java + DSA Foundation",
+   "subtitle": "Logic · OOP · Data Structures",
+   "icon": "coffee",
+   "link_url": "courses/java-dsa.php",
+   "sort_order": 4
+  },
+  {
+   "page": "home",
+   "section": "skills",
+   "title": "Mobile App Development",
+   "subtitle": "Flutter · UI · State",
+   "icon": "smartphone",
+   "link_url": "courses/mobile-app-development.php",
+   "sort_order": 5
+  },
+  {
+   "page": "home",
+   "section": "skills",
+   "title": "Kids Programming",
+   "subtitle": "Logic · Coding · Projects",
+   "icon": "mic",
+   "link_url": "courses/kids-programming.php",
+   "sort_order": 6
+  },
+  {
+   "page": "home",
+   "section": "journey",
+   "tag": "FOUNDATION",
+   "title": "C / C++ / Java / Python",
+   "description": "Start with the languages that teach you how computers really think.",
+   "sort_order": 1
+  },
+  {
+   "page": "home",
+   "section": "journey",
+   "tag": "PROBLEM SOLVING",
+   "title": "Logic + DSA",
+   "description": "Patterns, algorithms and data structures that make your code fast and clean.",
+   "sort_order": 2
+  },
+  {
+   "page": "home",
+   "section": "journey",
+   "tag": "SPECIALIZATION",
+   "title": "Full Stack / Data Science / Mobile / Design",
+   "description": "Pick a direction and go deep with a dedicated course.",
+   "sort_order": 3
+  },
+  {
+   "page": "home",
+   "section": "journey",
+   "tag": "PROJECTS",
+   "title": "Build Real Applications",
+   "description": "Turn everything into working software — apps, sites, dashboards.",
+   "sort_order": 4
+  },
+  {
+   "page": "home",
+   "section": "journey",
+   "tag": "CONFIDENCE",
+   "title": "Understand → Build → Debug → Improve",
+   "description": "The loop that turns students into developers.",
+   "sort_order": 5
+  },
+  {
+   "page": "home",
+   "section": "projects",
+   "title": "Student Record System",
+   "icon": "braces",
+   "link_label": "C Programming",
+   "link_url": "courses/c-programming.php",
+   "sort_order": 1
+  },
+  {
+   "page": "home",
+   "section": "projects",
+   "title": "Calculator App",
+   "icon": "calculator",
+   "link_label": "C Programming",
+   "link_url": "courses/c-programming.php",
+   "sort_order": 2
+  },
+  {
+   "page": "home",
+   "section": "projects",
+   "title": "File Manager",
+   "icon": "folder",
+   "link_label": "C Programming",
+   "link_url": "courses/c-programming.php",
+   "sort_order": 3
+  },
+  {
+   "page": "home",
+   "section": "projects",
+   "title": "Pattern Generator",
+   "icon": "grid",
+   "link_label": "C Programming",
+   "link_url": "courses/c-programming.php",
+   "sort_order": 4
+  },
+  {
+   "page": "home",
+   "section": "projects",
+   "title": "E-Commerce Website",
+   "icon": "shopping-bag",
+   "link_label": "MERN Full Stack Development",
+   "link_url": "courses/mern-full-stack.php",
+   "sort_order": 5
+  },
+  {
+   "page": "home",
+   "section": "projects",
+   "title": "Chat Application",
+   "icon": "message-circle",
+   "link_label": "MERN Full Stack Development",
+   "link_url": "courses/mern-full-stack.php",
+   "sort_order": 6
+  },
+  {
+   "page": "home",
+   "section": "projects",
+   "title": "Admin Dashboard",
+   "icon": "layout-dashboard",
+   "link_label": "MERN Full Stack Development",
+   "link_url": "courses/mern-full-stack.php",
+   "sort_order": 7
+  },
+  {
+   "page": "home",
+   "section": "projects",
+   "title": "REST API Backend",
+   "icon": "server",
+   "link_label": "Java Full Stack Development",
+   "link_url": "courses/java-full-stack.php",
+   "sort_order": 8
+  },
+  {
+   "page": "home",
+   "section": "projects",
+   "title": "Full Stack Web App",
+   "icon": "globe",
+   "link_label": "Java Full Stack Development",
+   "link_url": "courses/java-full-stack.php",
+   "sort_order": 9
+  },
+  {
+   "page": "home",
+   "section": "projects",
+   "title": "Data Analysis Project",
+   "icon": "table",
+   "link_label": "Data Science Foundation",
+   "link_url": "courses/data-science-foundation.php",
+   "sort_order": 10
+  },
+  {
+   "page": "home",
+   "section": "projects",
+   "title": "Visualization Dashboard",
+   "icon": "chart-line",
+   "link_label": "Data Science",
+   "link_url": "courses/data-science.php",
+   "sort_order": 11
+  },
+  {
+   "page": "home",
+   "section": "projects",
+   "title": "Machine Learning Models",
+   "icon": "brain",
+   "link_label": "Data Science",
+   "link_url": "courses/data-science.php",
+   "sort_order": 12
+  },
+  {
+   "page": "home",
+   "section": "projects",
+   "title": "Games & Animations",
+   "icon": "gamepad-2",
+   "link_label": "Kids Programming",
+   "link_url": "courses/kids-programming.php",
+   "sort_order": 13
+  },
+  {
+   "page": "home",
+   "section": "projects",
+   "title": "Website Projects",
+   "icon": "globe",
+   "link_label": "Kids Programming",
+   "link_url": "courses/kids-programming.php",
+   "sort_order": 14
+  },
+  {
+   "page": "home",
+   "section": "projects",
+   "title": "Mobile Applications",
+   "icon": "smartphone",
+   "link_label": "Mobile App Development (Flutter)",
+   "link_url": "courses/mobile-app-development.php",
+   "sort_order": 15
+  }
+ ],
+ "testimonials": [
+  {
+   "student_name": "Tanushri Wawge",
+   "review_date": "4 weeks ago",
+   "avatar": "av-blue",
+   "initials": "TW",
+   "rating": 5,
+   "testimonial": "The instructor's clear and practical explanations of MERN stack concepts made learning engaging and effective, greatly improving my full-stack skills.",
+   "source": "google",
+   "source_url": "https://maps.google.com/?q=Chedo+Tech+Kondhwa+Budruk+Pune",
+   "course": "",
+   "sort_order": 1,
+   "status": 1
+  },
+  {
+   "student_name": "Gayatri Pawar",
+   "review_date": "4 weeks ago",
+   "avatar": "av-indigo",
+   "initials": "GP",
+   "rating": 5,
+   "testimonial": "This hands-on, project-based coding class with great instructor support and small classes is perfect for beginners to gain real-world skills.",
+   "source": "google",
+   "source_url": "https://maps.google.com/?q=Chedo+Tech+Kondhwa+Budruk+Pune",
+   "course": "",
+   "sort_order": 2,
+   "status": 1
+  },
+  {
+   "student_name": "Arya Nevase",
+   "review_date": "4 weeks ago",
+   "avatar": "av-cyan",
+   "initials": "AN",
+   "rating": 5,
+   "testimonial": "Chedo Tech made learning C practical and engaging with clear teaching and real-world examples, building strong coding fundamentals.",
+   "source": "google",
+   "source_url": "https://maps.google.com/?q=Chedo+Tech+Kondhwa+Budruk+Pune",
+   "course": "",
+   "sort_order": 3,
+   "status": 1
+  },
+  {
+   "student_name": "Omkar Hole",
+   "review_date": "4 weeks ago",
+   "avatar": "av-violet",
+   "initials": "OH",
+   "rating": 5,
+   "testimonial": "The teaching is excellent, focusing on practical examples and effective problem-solving, making complex topics easy to understand and apply.",
+   "source": "google",
+   "source_url": "https://maps.google.com/?q=Chedo+Tech+Kondhwa+Budruk+Pune",
+   "course": "",
+   "sort_order": 4,
+   "status": 1
+  },
+  {
+   "student_name": "Ritvij Dixit",
+   "review_date": "4 weeks ago",
+   "avatar": "av-sky",
+   "initials": "RD",
+   "rating": 5,
+   "testimonial": "Great course! Sir was knowledgeable and provided clear explanations. Hands-on exercises were helpful. Highly recommended.",
+   "source": "google",
+   "source_url": "https://maps.google.com/?q=Chedo+Tech+Kondhwa+Budruk+Pune",
+   "course": "",
+   "sort_order": 5,
+   "status": 1
+  },
+  {
+   "student_name": "Karishma Sandupatla",
+   "review_date": "4 weeks ago",
+   "avatar": "av-emerald",
+   "initials": "KS",
+   "rating": 5,
+   "testimonial": "Chedo Tech is an excellent place to learn Python full stack with supportive instructors, clear teaching, and hands-on projects. Highly recommended!",
+   "source": "google",
+   "source_url": "https://maps.google.com/?q=Chedo+Tech+Kondhwa+Budruk+Pune",
+   "course": "",
+   "sort_order": 6,
+   "status": 1
+  }
+ ],
+ "courses_extra": [
+  {
+   "slug": "c-cpp-dsa",
+   "title": "C + C++ + DSA Foundation",
+   "short_description": "Complete Programming Foundation • OOP • Problem Solving • Interview Preparation",
+   "full_description": "Master C, C++, and Data Structures & Algorithms (DSA) in Pune at Chedo Tech. Strong programming logic, OOP, STL, complexity analysis, and coding interview preparation.",
+   "category": "programming",
+   "level": "Beginner",
+   "meta_title": "C + C++ + DSA Foundation Course in Pune | Chedo Tech",
+   "meta_description": "Master C, C++, and Data Structures & Algorithms (DSA) in Pune at Chedo Tech. Strong programming logic, OOP, STL, complexity analysis, and coding interview preparation."
+  },
+  {
+   "slug": "java-dsa",
+   "title": "Java + DSA Foundation",
+   "short_description": "Master Java Programming, OOP & Data Structures for Technical Interviews",
+   "full_description": "Master Java Programming, Object-Oriented design, Java Collections framework, and Data Structures & Algorithms (DSA) offline in Pune at Chedo Tech. Get interview ready.",
+   "category": "programming",
+   "level": "Beginner",
+   "meta_title": "Java + DSA Foundation Course in Pune | Chedo Tech",
+   "meta_description": "Master Java Programming, Object-Oriented design, Java Collections framework, and Data Structures & Algorithms (DSA) offline in Pune at Chedo Tech. Get interview ready."
+  },
+  {
+   "slug": "python-dsa",
+   "title": "Python + DSA Foundation",
+   "short_description": "Learn Python Faster. Master Data Structures. Solve Coding Problems Smarter.",
+   "full_description": "Master Python Programming, built-in collections, data structures, and algorithms (DSA) offline in Pune at Chedo Tech. Learn pythonic problem solving for technical coding interviews.",
+   "category": "programming",
+   "level": "Beginner",
+   "meta_title": "Python + DSA Foundation Course in Pune | Chedo Tech",
+   "meta_description": "Master Python Programming, built-in collections, data structures, and algorithms (DSA) offline in Pune at Chedo Tech. Learn pythonic problem solving for technical coding interviews."
+  },
+  {
+   "slug": "data-scientist",
+   "title": "Data Scientist",
+   "short_description": "Data Scientist course in Pune at Chedo Tech — Python, Pandas, SQL, statistics, EDA, visualization, machine learning, time series, NLP and model deployment. Offline and project-based.",
+   "full_description": "Data Scientist course in Pune at Chedo Tech — Python, Pandas, SQL, statistics, EDA, visualization, machine learning, time series, NLP and model deployment. Offline and project-based.",
+   "category": "data-ai",
+   "level": "Advanced",
+   "meta_title": "Data Scientist Course in Pune | Chedo Tech",
+   "meta_description": "Data Scientist course in Pune at Chedo Tech — Python, Pandas, SQL, statistics, EDA, visualization, machine learning, time series, NLP and model deployment. Offline and project-based."
+  },
+  {
+   "slug": "ml-engineer",
+   "title": "ML Engineering",
+   "short_description": "ML Engineer course in Pune at Chedo Tech — Python, NumPy, Pandas, statistics, regression, classification, deep learning with PyTorch and TensorFlow, and MLOps. Offline and project-based.",
+   "full_description": "ML Engineer course in Pune at Chedo Tech — Python, NumPy, Pandas, statistics, regression, classification, deep learning with PyTorch and TensorFlow, and MLOps. Offline and project-based.",
+   "category": "data-ai",
+   "level": "Advanced",
+   "meta_title": "ML Engineer Course in Pune | Chedo Tech",
+   "meta_description": "ML Engineer course in Pune at Chedo Tech — Python, NumPy, Pandas, statistics, regression, classification, deep learning with PyTorch and TensorFlow, and MLOps. Offline and project-based."
+  },
+  {
+   "slug": "ai-engineer",
+   "title": "AI Engineering",
+   "short_description": "Become an AI Engineer in Pune at Chedo Tech — Python, deep learning, transformers and LLMs, prompt engineering, RAG, vector databases, AI agents and deployment. Offline and project-based.",
+   "full_description": "Become an AI Engineer in Pune at Chedo Tech — Python, deep learning, transformers and LLMs, prompt engineering, RAG, vector databases, AI agents and deployment. Offline and project-based.",
+   "category": "data-ai",
+   "level": "Advanced",
+   "meta_title": "AI Engineer Course in Pune | Chedo Tech",
+   "meta_description": "Become an AI Engineer in Pune at Chedo Tech — Python, deep learning, transformers and LLMs, prompt engineering, RAG, vector databases, AI agents and deployment. Offline and project-based."
+  },
+  {
+   "slug": "gen-ai-engineer",
+   "title": "Gen AI Engineering",
+   "short_description": "Generative AI Engineer course in Pune at Chedo Tech — transformers, LLMs, prompt engineering, Hugging Face, RAG, fine-tuning, LangChain and multimodal GenAI apps. Offline and project-based.",
+   "full_description": "Generative AI Engineer course in Pune at Chedo Tech — transformers, LLMs, prompt engineering, Hugging Face, RAG, fine-tuning, LangChain and multimodal GenAI apps. Offline and project-based.",
+   "category": "data-ai",
+   "level": "Advanced",
+   "meta_title": "Gen AI Engineer Course in Pune | Chedo Tech",
+   "meta_description": "Generative AI Engineer course in Pune at Chedo Tech — transformers, LLMs, prompt engineering, Hugging Face, RAG, fine-tuning, LangChain and multimodal GenAI apps. Offline and project-based."
+  },
+  {
+   "slug": "agentic-ai-engineer",
+   "title": "Agentic AI Engineering",
+   "short_description": "Agentic AI Engineer course in Pune at Chedo Tech — LLMs, tool calling, RAG, agent memory, LangChain and LangGraph, multi-agent systems, guardrails and deployment. Offline and project-based.",
+   "full_description": "Agentic AI Engineer course in Pune at Chedo Tech — LLMs, tool calling, RAG, agent memory, LangChain and LangGraph, multi-agent systems, guardrails and deployment. Offline and project-based.",
+   "category": "data-ai",
+   "level": "Advanced",
+   "meta_title": "Agentic AI Engineer Course in Pune | Chedo Tech",
+   "meta_description": "Agentic AI Engineer course in Pune at Chedo Tech — LLMs, tool calling, RAG, agent memory, LangChain and LangGraph, multi-agent systems, guardrails and deployment. Offline and project-based."
+  },
+  {
+   "slug": "data-engineer",
+   "title": "Data Engineering",
+   "short_description": "Learn data science in Pune at Chedo Tech — Python, Pandas, machine learning with scikit-learn, AI (NLP, transformers), statistics, Power BI and MLOps, fully offline and project-driven.",
+   "full_description": "Learn data science in Pune at Chedo Tech — Python, Pandas, machine learning with scikit-learn, AI (NLP, transformers), statistics, Power BI and MLOps, fully offline and project-driven.",
+   "category": "data-ai",
+   "level": "Advanced",
+   "meta_title": "Data Engineer Course in Pune | Chedo Tech",
+   "meta_description": "Learn data science in Pune at Chedo Tech — Python, Pandas, machine learning with scikit-learn, AI (NLP, transformers), statistics, Power BI and MLOps, fully offline and project-driven."
+  },
+  {
+   "slug": "data-science-foundation-kids",
+   "title": "Data Science Foundation for Kids",
+   "short_description": "A fun and beginner-friendly introduction to Python, data science, visualization, logical thinking and creative AI skills designed especially for young learners.",
+   "full_description": "Beginner-friendly Data Science Foundation course for kids at Chedo Tech. Learn Python basics, data handling, visualization, logical thinking, statistics and creative AI through hands-on projects.",
+   "category": "kids",
+   "level": "Beginner",
+   "meta_title": "Data Science Foundation for Kids | Chedo Tech",
+   "meta_description": "Beginner-friendly Data Science Foundation course for kids at Chedo Tech. Learn Python basics, data handling, visualization, logical thinking, statistics and creative AI through hands-on projects."
+  },
+  {
+   "slug": "kids-programming-level-1",
+   "title": "Kids Programming Level 1",
+   "short_description": "A fun and practical foundation program that helps children understand computers, build logical thinking skills, learn block-based coding and create their first games.",
+   "full_description": "Kids Programming Level 1 for ages 7–16. Learn computer basics, logic building, Scratch block coding, animations and simple games through fun practical learning.",
+   "category": "kids",
+   "level": "Beginner",
+   "meta_title": "Kids Programming Level 1 | Chedo Tech",
+   "meta_description": "Kids Programming Level 1 for ages 7–16. Learn computer basics, logic building, Scratch block coding, animations and simple games through fun practical learning."
+  },
+  {
+   "slug": "kids-programming-level-2",
+   "title": "Kids Programming Level 2",
+   "short_description": "Build stronger programming skills through Python basics, problem solving, web basics and practical mini projects.",
+   "full_description": "Kids Programming Level 2 for young learners — Python basics, problem solving, web basics and mini projects through practical, offline learning.",
+   "category": "kids",
+   "level": "Beginner",
+   "meta_title": "Kids Programming Level 2 | Chedo Tech",
+   "meta_description": "Kids Programming Level 2 for young learners — Python basics, problem solving, web basics and mini projects through practical, offline learning."
+  },
+  {
+   "slug": "kids-programming-level-3",
+   "title": "Kids Programming Level 3",
+   "short_description": "A practical advanced foundation program that helps young learners strengthen programming skills, understand Python fundamentals, explore web development and build meaningful coding projects.",
+   "full_description": "Kids Programming Level 3 for young learners. Build stronger programming skills, problem-solving ability, Python fundamentals, web development knowledge and practical projects through hands-on learning.",
+   "category": "kids",
+   "level": "Beginner",
+   "meta_title": "Kids Programming Level 3 | Chedo Tech",
+   "meta_description": "Kids Programming Level 3 for young learners. Build stronger programming skills, problem-solving ability, Python fundamentals, web development knowledge and practical projects through hands-on learning."
+  },
+  {
+   "slug": "kids-programming-level-4",
+   "title": "Kids Programming Level 4",
+   "short_description": "A practical advanced learning program that helps young learners strengthen programming concepts, improve problem-solving skills, work with Python and web technologies, and build complete projects.",
+   "full_description": "Kids Programming Level 4 for young learners. Strengthen programming skills, problem-solving, Python, web development and project-building abilities through practical hands-on learning.",
+   "category": "kids",
+   "level": "Beginner",
+   "meta_title": "Kids Programming Level 4 | Chedo Tech",
+   "meta_description": "Kids Programming Level 4 for young learners. Strengthen programming skills, problem-solving, Python, web development and project-building abilities through practical hands-on learning."
+  }
+ ]
+}

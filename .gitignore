@@ -1,0 +1,12 @@
+# Real database credentials stay on each machine/server — copy config/database.example.php
+config/database.php
+
+# OS / editor clutter
+.DS_Store
+Thumbs.db
+
+# Secret settings (API keys) — copy .env.example to .env
+.env
+
+# Setup wizard unlock file (create it by hand on a live server to re-run setup.php)
+config/allow-setup.txt

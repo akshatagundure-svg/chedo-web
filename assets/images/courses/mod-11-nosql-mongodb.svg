@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" fill="none">
+  <defs>
+    <linearGradient id="mongoLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#13aa52"/>
+      <stop offset="100%" stop-color="#00684a"/>
+    </linearGradient>
+    <linearGradient id="mongoRight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00ed64"/>
+      <stop offset="100%" stop-color="#13aa52"/>
+    </linearGradient>
+  </defs>
+  <!-- Left Leaf Half -->
+  <path d="M40 8 C40 8 38 18 34 26 C28 38 23 46 29 58 C33 65 39 70 40 72 L40 8 Z" fill="url(#mongoLeft)"/>
+  <!-- Right Leaf Half -->
+  <path d="M40 8 C40 8 42 18 46 26 C52 38 57 46 51 58 C47 65 41 70 40 72 L40 8 Z" fill="url(#mongoRight)"/>
+  <!-- Center Stem -->
+  <path d="M40 16 L40 68" stroke="#ffffff" stroke-width="1.2" opacity="0.6"/>
+  <!-- JSON Curly Brackets Accent -->
+  <text x="14" y="44" font-family="monospace" font-size="18" font-weight="900" fill="#00684a">{</text>
+  <text x="60" y="44" font-family="monospace" font-size="18" font-weight="900" fill="#00ed64">}</text>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" fill="none">
+  <defs>
+    <linearGradient id="dockerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+  </defs>
+  <circle cx="40" cy="40" r="34" fill="#f0f9ff" stroke="#e0f2fe" stroke-width="1.5"/>
+  <g transform="translate(40, 42)">
+    <path d="M0 -18 L18 -8 L0 2 L-18 -8 Z" fill="#38bdf8"/>
+    <path d="M-18 -8 L0 2 V22 L-18 12 Z" fill="url(#dockerGrad)"/>
+    <path d="M0 2 L18 -8 V12 L0 22 Z" fill="#0284c7"/>
+    <line x1="-12" y1="-2" x2="-12" y2="15" stroke="#0369a1" stroke-width="1.5"/>
+    <line x1="-6" y1="1" x2="-6" y2="18" stroke="#0369a1" stroke-width="1.5"/>
+    <text x="-9" y="-4" font-family="monospace" font-size="8" font-weight="bold" fill="#0f172a">&gt;_</text>
+  </g>
+</svg>

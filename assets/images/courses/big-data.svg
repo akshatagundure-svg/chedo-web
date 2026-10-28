@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" fill="none">
+  <defs>
+    <linearGradient id="bdGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#6d28d9"/>
+    </linearGradient>
+    <linearGradient id="bdCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#0891b2"/>
+    </linearGradient>
+  </defs>
+  <circle cx="40" cy="40" r="34" fill="#f5f3ff" stroke="#ede9fe" stroke-width="1.5"/>
+  <line x1="40" y1="40" x2="22" y2="25" stroke="#c4b5fd" stroke-width="2" stroke-dasharray="3 2"/>
+  <line x1="40" y1="40" x2="58" y2="25" stroke="#c4b5fd" stroke-width="2" stroke-dasharray="3 2"/>
+  <line x1="40" y1="40" x2="20" y2="55" stroke="#c4b5fd" stroke-width="2" stroke-dasharray="3 2"/>
+  <line x1="40" y1="40" x2="60" y2="55" stroke="#c4b5fd" stroke-width="2" stroke-dasharray="3 2"/>
+  <circle cx="40" cy="40" r="13" fill="url(#bdGrad)"/>
+  <circle cx="40" cy="40" r="8" fill="#c4b5fd" opacity="0.5"/>
+  <circle cx="40" cy="40" r="4" fill="#ffffff"/>
+  <circle cx="22" cy="25" r="8" fill="url(#bdCyan)"/>
+  <circle cx="22" cy="25" r="3" fill="#ffffff"/>
+  <circle cx="58" cy="25" r="9" fill="url(#bdGrad)"/>
+  <circle cx="58" cy="25" r="3.5" fill="#ffffff"/>
+  <circle cx="20" cy="55" r="7.5" fill="url(#bdGrad)"/>
+  <circle cx="20" cy="55" r="3" fill="#ffffff"/>
+  <circle cx="60" cy="55" r="8.5" fill="url(#bdCyan)"/>
+  <circle cx="60" cy="55" r="3" fill="#ffffff"/>
+</svg>

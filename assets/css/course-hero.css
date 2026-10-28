@@ -1,0 +1,964 @@
+/* ==========================================================================
+   COURSE HERO IMAGE PRESENTATION — SEAMLESS NATURAL INTEGRATION
+   Shared by every page in /courses/
+   Removes border boxes, plates, window bars, chips, and all hover effects.
+   Hero illustrations remain completely static and integrated into the background.
+   ========================================================================== */
+
+/* Completely disable decorative glows */
+.cp-hero-right .cp-hero-image-wrap::before,
+.de-hero-right .de-hero-image-wrap::before,
+.cp-hero-image-wrap::before,
+.de-hero-image-wrap::before,
+.ch-frame::before {
+  display: none !important;
+}
+
+/* Eliminate decorative plate, dot accents, window bars, and floating chips */
+.ch-plate,
+.ch-dots,
+.ch-bar,
+.ch-chip,
+.cp-figure-chip {
+  display: none !important;
+}
+
+/* Hero image container: completely borderless, transparent, static */
+.ch-frame {
+  --ch-a: #6366f1;
+  --ch-b: #38bdf8;
+  position: relative;
+  width: 100% !important;
+  max-width: 600px;
+  margin: 16px auto 28px !important;
+  isolation: auto !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  padding: 0 !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+/* App window & figure containers holding the artwork — all border box styles removed */
+.ch-window,
+.cp-figure,
+.de-hero-platform-card {
+  position: relative;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+.ch-media,
+.cp-figure .cp-figure-media {
+  position: relative;
+  overflow: visible !important;
+  border-radius: 0 !important;
+  aspect-ratio: auto;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  padding: 0 !important;
+  height: 100% !important;
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Hero image: natural placement directly on existing website background */
+.ch-img,
+.cp-hero-img,
+.de-hero-platform-img {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  object-fit: contain !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  filter: none !important;
+  transition: none !important;
+  transform: none !important;
+  pointer-events: none !important;
+  max-height: 100% !important;
+  /* Prevents any mouse-following or hover animations */
+}
+
+/* Disable sheen overlay */
+.ch-media::after {
+  display: none !important;
+}
+
+/* ==========================================================================
+   REMOVE ALL HERO IMAGE HOVER EFFECTS ACROSS ALL SELECTORS
+   Illustration must remain visually unchanged when mouse enters, moves, or leaves.
+   ========================================================================== */
+.ch-frame:hover,
+.ch-frame:hover .ch-img,
+.ch-frame:hover .ch-plate,
+.ch-frame:hover .ch-window,
+.ch-frame:hover .ch-media,
+.ch-window:hover,
+.ch-media:hover,
+.ch-img:hover,
+.cp-hero-right:hover .ch-frame,
+.cp-hero-right:hover .ch-img,
+.de-hero-right:hover .ch-frame,
+.de-hero-right:hover .ch-img,
+.cp-hero-image-wrap:hover .ch-frame,
+.cp-hero-image-wrap:hover .ch-img,
+.cp-hero-image-wrap:hover .cp-hero-img,
+.cp-hero-image-wrap:hover .cp-figure,
+.cp-hero-image-wrap:hover .cp-figure .ch-img,
+.cp-hero-image-wrap:hover img,
+.de-hero-image-wrap:hover .ch-frame,
+.de-hero-image-wrap:hover .ch-img,
+.de-hero-image-wrap:hover .de-hero-platform-img,
+.de-hero-platform-card:hover .de-hero-platform-img,
+.de-hero-image-wrap:hover img {
+  transform: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+  transition: none !important;
+}
+
+@media (max-width: 1023px) {
+  .ch-frame {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .ch-frame {
+    width: 100% !important;
+    margin: 14px auto 24px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ch-chip {
+    animation: none;
+  }
+
+  .ch-frame,
+  .ch-plate,
+  .ch-img {
+    transition: none;
+  }
+}
+
+/* ==========================================================================
+   COURSE HERO BUTTONS — one set, same names / icons / order on every course page:
+   Enroll Now (primary) · View Curriculum · View Full Syllabus · Enquire on WhatsApp
+   ========================================================================== */
+/* Desktop / tablet: all four buttons on one line. Phones: two per line.
+   Doubled class so it beats each page's own inline .cp-hero-actions / .de-hero-actions rules. */
+.ch-actions.ch-actions {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 30px;
+}
+
+.ch-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  gap: 6px;
+  height: 44px;
+  padding: 0 14px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.ch-btn svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.ch-btn:hover {
+  transform: translateY(-1px);
+}
+
+.ch-btn-primary {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+  border: 1px solid transparent;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+}
+
+.ch-btn-primary svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.2s ease;
+}
+
+.ch-btn-primary:hover {
+  background: linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45);
+}
+
+.ch-btn-primary:hover svg {
+  transform: translateX(3px);
+}
+
+.ch-btn-ghost {
+  color: #0f172a !important;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.ch-btn-ghost:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+}
+
+.ch-btn-wa {
+  color: #15803d !important;
+  background: #ffffff;
+  border: 1px solid #25d366;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.15);
+}
+
+.ch-btn-wa svg {
+  fill: #25d366;
+}
+
+.ch-btn-wa:hover {
+  background: #f0fdf4;
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.25);
+}
+
+.ch-btn-syllabus {
+  color: #4338ca !important;
+  background: #eef2ff;
+  border: 1px solid #c7d2fe;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.12);
+}
+
+.ch-btn-syllabus svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ch-btn-syllabus:hover {
+  background: #e0e7ff;
+  border-color: #a5b4fc;
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.2);
+}
+
+/* ==========================================================================
+   DESKTOP & LAPTOP (>= 1024px): MATCH HERO IMAGE HEIGHT TO LEFT TEXT SECTION
+   The hero row uses flexbox stretch alignment so the illustration automatically
+   fills and matches the exact vertical height of the left text column.
+   ========================================================================== */
+@media (min-width: 1024px) {
+  .cp-hero .cp-hero-row,
+  .cp-hero-row,
+  .de-hero-section .de-hero-row,
+  .de-hero-row {
+    align-items: stretch !important;
+  }
+
+  .cp-hero .cp-hero-left,
+  .cp-hero-row .cp-hero-left,
+  .de-hero-section .de-hero-left,
+  .de-hero-row .de-hero-left {
+    flex: 0 0 clamp(500px, 45%, 550px) !important;
+    max-width: 550px !important;
+  }
+
+  .cp-hero .cp-hero-right,
+  .cp-hero-row .cp-hero-right,
+  .de-hero-section .de-hero-right,
+  .de-hero-row .de-hero-right {
+    flex: 1 1 auto !important;
+    max-width: none !important;
+    align-self: stretch !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+    min-height: 0 !important;
+  }
+
+  .cp-hero-image-wrap,
+  .de-hero-image-wrap {
+    height: 100% !important;
+    width: 100% !important;
+    max-width: none !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+    min-height: 0 !important;
+  }
+
+  .ch-frame,
+  .cp-hero-right .ch-frame,
+  .de-hero-right .ch-frame {
+    height: 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    min-height: 0 !important;
+  }
+
+  .ch-window,
+  .cp-figure,
+  .de-hero-platform-card {
+    height: 100% !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    min-height: 0 !important;
+  }
+
+  .ch-media,
+  .cp-hero-right .ch-media,
+  .cp-hero .cp-hero-right .ch-media,
+  .de-hero-right .ch-media,
+  .de-hero-section .de-hero-right .ch-media,
+  .cp-figure .cp-figure-media {
+    height: 100% !important;
+    width: 100% !important;
+    aspect-ratio: auto !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+    min-height: 0 !important;
+  }
+
+  .ch-img,
+  .cp-hero-img,
+  .de-hero-platform-img {
+    height: 100% !important;
+    width: auto !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+    object-position: bottom center !important;
+    display: block !important;
+  }
+}
+
+/* Smaller laptops: tighten the buttons so all four still sit on one line */
+@media (min-width: 1024px) and (max-width: 1365px) {
+  .ch-actions.ch-actions {
+    gap: 6px;
+  }
+
+  .ch-btn {
+    padding: 0 11px;
+    font-size: 12.5px;
+    gap: 5px;
+    height: 42px;
+  }
+
+  .ch-btn-primary svg,
+  .ch-btn-syllabus svg {
+    display: none;
+  }
+
+  .ch-btn-wa svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (max-width: 767px) {
+  .ch-actions.ch-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .ch-btn {
+    width: 100%;
+    height: 46px;
+    padding: 0 8px;
+    font-size: 12.5px;
+    gap: 5px;
+  }
+
+  .ch-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* Very narrow phones: let a long label wrap rather than overflow */
+@media (max-width: 359px) {
+  .ch-btn {
+    height: auto;
+    min-height: 46px;
+    padding: 6px 8px;
+    font-size: 12px;
+    line-height: 1.2;
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+/* ==========================================================================
+   JOURNEY / ROADMAP CARDS — two per row on phones (every layout tagged .ch-journey)
+   ========================================================================== */
+@media (max-width: 767px) {
+  .ch-journey.ch-journey {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .ch-journey.ch-journey>* {
+    width: auto;
+    min-width: 0;
+    padding: 16px 12px;
+  }
+
+  /* Data Engineer splits its steps over two rows: keep the gap between them even */
+  .de-steps-row1.ch-journey+.de-steps-row2.ch-journey,
+  .de-steps-row2.ch-journey {
+    margin-top: 10px;
+  }
+
+  .ch-journey .cp-step-heading,
+  .ch-journey h3,
+  .ch-journey h4 {
+    font-size: 14px;
+    line-height: 1.3;
+  }
+
+  .ch-journey .cp-step-text,
+  .ch-journey p {
+    font-size: 12.5px;
+    line-height: 1.45;
+  }
+}
+
+/* ==========================================================================
+   HERO FEATURE PILLS — three per row on phones as compact tiles (emoji above the label)
+   ========================================================================== */
+@media (max-width: 767px) {
+
+  .cp-features-grid.cp-features-grid,
+  .de-features-grid.de-features-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .cp-features-grid .cp-feature-pill,
+  .de-features-grid .de-feature-pill {
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    min-width: 0;
+    padding: 9px 4px;
+    border-radius: 14px;
+    font-size: 11.5px;
+    line-height: 1.25;
+    text-align: center;
+  }
+
+  .cp-features-grid .cp-feature-emoji,
+  .de-features-grid .de-feature-pill> :first-child {
+    font-size: 16px;
+  }
+}
+
+/* ==========================================================================
+   UNIFIED COURSE HERO — identical frame on every course page
+   Left: badges · title · subtitle · description · tags · buttons  |  Right: 16:9 image.
+   Desktop (1200px+): exact 50 / 50 split, image always 16:9 and vertically centred against
+   the text column; text sizes scale with the column (container units) so nothing overflows.
+   Content is never removed. A page whose text is unusually long/short can nudge the
+   --hb-n / --ht-n / --hs-n / --hd-n variables on its <section class="cp-hero" style="...">.
+   ========================================================================== */
+.cp-hero {
+  --hb-n: 62;
+  /* badge row: column width ÷ this = font-size */
+  --ht-n: 12;
+  /* title */
+  --hs-n: 37;
+  /* subtitle */
+  --hd-n: 49;
+  /* description */
+}
+
+/* 16:9 image on every screen size */
+.cp-hero .cp-hero-right .ch-media {
+  aspect-ratio: 16 / 9;
+}
+
+.cp-hero .cp-hero-right .ch-img {
+  object-fit: cover;
+}
+
+/* same plain frame everywhere: decorative window bar / plate / dots are hidden and floating chips are hidden (kept in markup) */
+.cp-hero .ch-bar,
+.cp-hero .ch-plate,
+.cp-hero .ch-dots,
+.cp-hero .ch-chip {
+  display: none;
+}
+
+/* Ensure hero image has no outer border box or container styling */
+.cp-hero .cp-hero-right .ch-window {
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  box-shadow: none;
+}
+
+.cp-hero .cp-hero-right .ch-media {
+  border-radius: 0;
+  background: transparent;
+}
+
+.cp-hero .cp-hero-right .ch-media::after {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .cp-hero .cp-hero-inner {
+    max-width: 1400px;
+    padding-top: 36px;
+    padding-bottom: 64px;
+  }
+}
+
+/* the "fast-track" tagline is dropped from the hero (kept in the markup, hidden) */
+.cp-hero .cp-fast-track {
+  display: none;
+}
+
+@media (min-width: 1200px) {
+  .cp-hero .cp-hero-row {
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 36px;
+  }
+
+  .cp-hero .cp-hero-left {
+    flex: 0 0 clamp(500px, 44%, 560px);
+    max-width: 560px;
+  }
+
+  .cp-hero .cp-hero-right {
+    flex: 1 1 auto;
+    max-width: none;
+    align-self: stretch;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  /* left column is as tall as the hero image; badges align with its top edge, buttons with its bottom edge */
+  .cp-hero .cp-hero-left {
+    container-type: inline-size;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .cp-hero .cp-hero-right .cp-hero-image-wrap {
+    max-width: none;
+    align-items: flex-end;
+  }
+
+  .cp-hero .cp-hero-right .ch-frame {
+    margin: 0;
+    width: 100%;
+    max-width: none;
+    align-items: flex-end;
+  }
+
+  /* badges: one line */
+  .cp-hero .cp-hero-left .cp-top-badges {
+    width: 100%;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.9em;
+    margin-bottom: 14px;
+    font-size: calc(100cqw / var(--hb-n));
+  }
+
+  /* tagline sits on its own line under the badges */
+  .cp-hero .cp-hero-left .cp-top-badges .cp-fast-track {
+    flex: 0 0 100%;
+    font-size: 1.1em;
+    line-height: 1.2;
+  }
+
+  .cp-hero .cp-hero-left .cp-top-badges .cp-badge-level,
+  .cp-hero .cp-hero-left .cp-top-badges .cp-badge-soft {
+    font-size: 1em;
+    padding: 0.45em 1em;
+    letter-spacing: 0.02em;
+  }
+
+  .cp-hero .cp-hero-left .cp-top-badges .google-badge {
+    font-size: 1em;
+    padding: 0.35em 0.9em;
+    gap: 0.4em;
+  }
+
+  .cp-hero .cp-hero-left .cp-top-badges .google-badge-logo {
+    width: 1.4em;
+    height: 1.4em;
+  }
+
+  .cp-hero .cp-hero-left .cp-top-badges .google-badge-stars {
+    font-size: 1em;
+    letter-spacing: 0.05em;
+  }
+
+  .cp-hero .cp-hero-left .cp-hero-title {
+    font-size: min(calc(100cqw / var(--ht-n)), 3.3rem);
+    line-height: 1.06;
+  }
+
+  .cp-hero .cp-hero-left .cp-hero-sub,
+  .cp-hero .cp-hero-left .cp-hero-subtitle {
+    font-size: calc(100cqw / var(--hs-n));
+    font-weight: 800;
+    letter-spacing: -0.015em;
+    color: #1d4ed8;
+    margin: 8px 0 0;
+    max-width: none;
+    line-height: 1.35;
+  }
+
+  .cp-hero .cp-hero-left .cp-hero-desc {
+    font-size: calc(100cqw / var(--hd-n));
+    margin: 8px 0 0;
+    max-width: none;
+    line-height: 1.65;
+    text-wrap: balance;
+  }
+
+  /* tag pills (Java+DSA style) and feature pills (other courses) share one look */
+  .cp-hero .cp-hero-left .cp-tag-row,
+  .cp-hero .cp-hero-left .cp-features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    /* always three per row */
+    gap: 8px;
+    margin-top: 12px;
+    max-width: none;
+  }
+
+  .cp-hero .cp-hero-left .cp-tag-pill,
+  .cp-hero .cp-hero-left .cp-feature-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    justify-content: center;
+    min-width: 0;
+    text-align: center;
+    white-space: nowrap;
+    background: #ffffff;
+    border: 1px solid #dbeafe;
+    border-radius: 9999px;
+    padding: 6px 8px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #1e40af;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+    transform: none;
+  }
+
+  /* short pages (title straight into description): larger description so the column reads full */
+  .cp-hero .cp-hero-left .cp-hero-title+.cp-hero-desc {
+    font-size: calc(100cqw / 38);
+    line-height: 1.7;
+  }
+
+  .cp-hero .cp-hero-left .cp-hero-actions {
+    margin-top: 16px !important;
+    gap: 12px;
+  }
+
+  .cp-hero .cp-hero-left .cp-hero-notice {
+    margin: 8px 0 0;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+}
+
+/* ==========================================================================
+   DATA ENGINEER VARIANT of the unified hero (same rules, de- class names)
+   Left: badges · title · subtitle · description · tags · buttons  |  Right: 16:9 image.
+   Desktop (1200px+): exact 50 / 50 split, image always 16:9 and vertically centred against
+   the text column; text sizes scale with the column (container units) so nothing overflows.
+   Content is never removed. A page whose text is unusually long/short can nudge the
+   --hb-n / --ht-n / --hs-n / --hd-n variables on its <section class="cp-hero" style="...">.
+   ========================================================================== */
+.de-hero-section {
+  --hb-n: 62;
+  /* badge row: column width ÷ this = font-size */
+  --ht-n: 12;
+  /* title */
+  --hs-n: 37;
+  /* subtitle */
+  --hd-n: 49;
+  /* description */
+}
+
+/* 16:9 image on every screen size */
+.de-hero-section .de-hero-right .ch-media {
+  aspect-ratio: 16 / 9;
+}
+
+.de-hero-section .de-hero-right .ch-img {
+  object-fit: cover;
+}
+
+/* same plain frame everywhere: decorative window bar / plate / dots are hidden and floating chips are hidden (kept in markup) */
+.de-hero-section .ch-bar,
+.de-hero-section .ch-plate,
+.de-hero-section .ch-dots,
+.de-hero-section .ch-chip {
+  display: none;
+}
+
+/* Ensure hero image has no outer border box or container styling */
+.de-hero-section .de-hero-right .ch-window {
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  box-shadow: none;
+}
+
+.de-hero-section .de-hero-right .ch-media {
+  border-radius: 0;
+  background: transparent;
+}
+
+.de-hero-section .de-hero-right .ch-media::after {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .de-hero-section .de-container {
+    max-width: 1400px;
+    padding-top: 36px;
+    padding-bottom: 64px;
+  }
+}
+
+/* the "fast-track" tagline is dropped from the hero (kept in the markup, hidden) */
+.de-hero-section .de-fast-track {
+  display: none;
+}
+
+@media (min-width: 1200px) {
+  .de-hero-section .de-hero-row {
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 36px;
+  }
+
+  .de-hero-section .de-hero-left {
+    flex: 0 0 clamp(500px, 44%, 560px);
+    max-width: 560px;
+  }
+
+  .de-hero-section .de-hero-right {
+    flex: 1 1 auto;
+    max-width: none;
+    align-self: stretch;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  /* left column is as tall as the hero image; badges align with its top edge, buttons with its bottom edge */
+  .de-hero-section .de-hero-left {
+    container-type: inline-size;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .de-hero-section .de-hero-right .de-hero-image-wrap {
+    max-width: none;
+    align-items: flex-end;
+  }
+
+  .de-hero-section .de-hero-right .ch-frame {
+    margin: 0;
+    width: 100%;
+    max-width: none;
+    align-items: flex-end;
+  }
+
+  /* badges: one line */
+  .de-hero-section .de-hero-left .de-top-badges {
+    width: 100%;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.9em;
+    margin-bottom: 14px;
+    font-size: calc(100cqw / var(--hb-n));
+  }
+
+  /* tagline sits on its own line under the badges */
+  .de-hero-section .de-hero-left .de-top-badges .de-fast-track {
+    flex: 0 0 100%;
+    font-size: 1.1em;
+    line-height: 1.2;
+  }
+
+  .de-hero-section .de-hero-left .de-top-badges .de-badge-level,
+  .de-hero-section .de-hero-left .de-top-badges .de-badge-soft {
+    font-size: 1em;
+    padding: 0.45em 1em;
+    letter-spacing: 0.02em;
+  }
+
+  .de-hero-section .de-hero-left .de-top-badges .google-badge {
+    font-size: 1em;
+    padding: 0.35em 0.9em;
+    gap: 0.4em;
+  }
+
+  .de-hero-section .de-hero-left .de-top-badges .google-badge-logo {
+    width: 1.4em;
+    height: 1.4em;
+  }
+
+  .de-hero-section .de-hero-left .de-top-badges .google-badge-stars {
+    font-size: 1em;
+    letter-spacing: 0.05em;
+  }
+
+  .de-hero-section .de-hero-left .de-hero-title {
+    font-size: min(calc(100cqw / var(--ht-n)), 3.3rem);
+    line-height: 1.06;
+  }
+
+  .de-hero-section .de-hero-left .de-hero-subtitle {
+    font-size: calc(100cqw / var(--hs-n)) !important;
+    /* beats the site-wide "section h2" rule */
+    font-weight: 800;
+    letter-spacing: -0.015em;
+    color: #1d4ed8;
+    margin: 8px 0 0;
+    max-width: none;
+    line-height: 1.35;
+  }
+
+  .de-hero-section .de-hero-left .de-hero-desc {
+    font-size: calc(100cqw / var(--hd-n));
+    margin: 8px 0 0;
+    max-width: none;
+    line-height: 1.65;
+    text-wrap: balance;
+  }
+
+  /* tag pills (Java+DSA style) and feature pills (other courses) share one look */
+  .de-hero-section .de-hero-left .de-tag-row,
+  .de-hero-section .de-hero-left .de-features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    /* always three per row */
+    gap: 8px;
+    margin-top: 12px;
+    max-width: none;
+  }
+
+  .de-hero-section .de-hero-left .de-tag-pill,
+  .de-hero-section .de-hero-left .de-feature-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    justify-content: center;
+    min-width: 0;
+    text-align: center;
+    white-space: nowrap;
+    background: #ffffff;
+    border: 1px solid #dbeafe;
+    border-radius: 9999px;
+    padding: 6px 8px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #1e40af;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+    transform: none;
+  }
+
+  .de-hero-section .de-hero-left .de-hero-actions {
+    margin-top: 16px !important;
+    gap: 12px;
+  }
+
+  .de-hero-section .de-hero-left .de-hero-notice {
+    margin: 8px 0 0;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+}
+
+/* Non-emoji tag pills (Java + DSA style) keep their natural, left-aligned wrapping look;
+   only the emoji feature pills are forced into three equal columns. */
+@media (min-width: 1200px) {
+
+  .cp-hero .cp-hero-left .cp-tag-row,
+  .de-hero-section .de-hero-left .de-tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+    max-width: 620px;
+  }
+
+  .cp-hero .cp-hero-left .cp-tag-pill,
+  .de-hero-section .de-hero-left .de-tag-pill {
+    justify-content: flex-start;
+    text-align: left;
+    padding: 5px 13px;
+  }
+}

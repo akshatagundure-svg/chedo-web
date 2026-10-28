@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" fill="none">
+  <defs>
+    <linearGradient id="goldTrophy" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="50%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+  </defs>
+  <!-- Trophy Cup Body -->
+  <path d="M26 18 L54 18 L50 42 C50 49 45 54 40 54 C35 54 30 49 30 42 Z" fill="url(#goldTrophy)" stroke="#b45309" stroke-width="1.5"/>
+  <!-- Left Handle -->
+  <path d="M26 22 C18 22 18 34 27 36" stroke="#f59e0b" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <!-- Right Handle -->
+  <path d="M54 22 C62 22 62 34 53 36" stroke="#f59e0b" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <!-- Trophy Stem -->
+  <rect x="37" y="54" width="6" height="8" fill="#d97706"/>
+  <!-- Trophy Pedestal Base -->
+  <rect x="28" y="62" width="24" height="6" rx="2" fill="#0f172a" stroke="#d97706" stroke-width="1.2"/>
+  <!-- Star on Cup Face -->
+  <polygon points="40,26 42,31 47,31 43,34 45,39 40,36 35,39 37,34 33,31 38,31" fill="#ffffff"/>
+  <!-- Floating Diamond / Capstone Badge -->
+  <polygon points="40,8 45,13 40,18 35,13" fill="#38bdf8"/>
+</svg>
